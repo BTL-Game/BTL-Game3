@@ -1,0 +1,266 @@
+fileFormatVersion: 2
+guid: 9cccbaeab85495746b7820486f6b5556
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3197782867661075104
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_0
+  - first:
+      213: 7449016203042569242
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_1
+  - first:
+      213: -7940767279917764938
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_2
+  - first:
+      213: 3370792608404060018
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_3
+  - first:
+      213: 3556042027687575229
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_4
+  - first:
+      213: 7578984189151493586
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_5
+  - first:
+      213: -291570613380830683
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_6
+  - first:
+      213: -7238365765408832483
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_7
+  - first:
+      213: 1644099046632158424
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_8
+  - first:
+      213: -4025988827360572280
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_9
+  - first:
+      213: -761948651427731118
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_10
+  - first:
+      213: -780246978861399183
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_11
+  - first:
+      213: -2414932306926431791
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_12
+  - first:
+      213: 1144737142704901045
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_13
+  - first:
+      213: -7224292328293442265
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_14
+  - first:
+      213: -7830734052192621079
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_15
+  - first:
+      213: -4902333207842024449
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_16
+  - first:
+      213: 2748468861707869426
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_17
+  - first:
+      213: -8419531873301742386
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_18
+  - first:
+      213: -5361219603218011679
+    second: a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BabyDragon-Lava_0
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 223
+        width: 151
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad831959da15584ba958ad0c520b6d1
+      internalID: 1626854878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Lava_1
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 83
+        width: 68
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46e4e47a91750c4daf64ce1b46213ac
+      internalID: 1206203139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Lava_2
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 0
+        width: 175
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f463785fb8502474f992c218611ca706
+      internalID: 1490246173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: be1386a42e90bfd45a70aa89cf00e0c8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BabyDragon-Lava_0: 1626854878
+      BabyDragon-Lava_1: 1206203139
+      BabyDragon-Lava_2: 1490246173
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_0: -3197782867661075104
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_1: 7449016203042569242
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_10: -761948651427731118
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_11: -780246978861399183
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_12: -2414932306926431791
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_13: 1144737142704901045
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_14: -7224292328293442265
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_15: -7830734052192621079
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_16: -4902333207842024449
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_17: 2748468861707869426
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_18: -8419531873301742386
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_19: -5361219603218011679
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_2: -7940767279917764938
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_3: 3370792608404060018
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_4: 3556042027687575229
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_5: 7578984189151493586
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_6: -291570613380830683
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_7: -7238365765408832483
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_8: 1644099046632158424
+      a07c5064-3aeb-46bd-992a-5ed6630dba25_removalai_preview_9: -4025988827360572280
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

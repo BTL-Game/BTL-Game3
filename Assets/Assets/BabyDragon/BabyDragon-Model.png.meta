@@ -1,0 +1,405 @@
+fileFormatVersion: 2
+guid: a5062a923439c9b4cb63bc14c4fe25f9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8371255744305268761
+    second: BabyDragon-Model_0
+  - first:
+      213: 2508130021324738385
+    second: BabyDragon-Model_1
+  - first:
+      213: 422965905013126758
+    second: BabyDragon-Model_2
+  - first:
+      213: -1286171488487356172
+    second: BabyDragon-Model_3
+  - first:
+      213: -9170133918857102198
+    second: BabyDragon-Model_4
+  - first:
+      213: 6672157235550368303
+    second: BabyDragon-Model_5
+  - first:
+      213: -5638455980034928211
+    second: BabyDragon-Model_6
+  - first:
+      213: 3806839637365308302
+    second: BabyDragon-Model_7
+  - first:
+      213: -6830543122896541939
+    second: BabyDragon-Model_8
+  - first:
+      213: -68253990709774797
+    second: BabyDragon-Model_9
+  - first:
+      213: -3012488163060941958
+    second: BabyDragon-Model_10
+  - first:
+      213: 5240156030564669815
+    second: BabyDragon-Model_11
+  - first:
+      213: -8695166131375090137
+    second: BabyDragon-Model_12
+  - first:
+      213: 5509426381028014465
+    second: BabyDragon-Model_13
+  - first:
+      213: 8215845114095884580
+    second: BabyDragon-Model_14
+  - first:
+      213: -8239054957365616135
+    second: BabyDragon-Model_15
+  - first:
+      213: 1401810465423201476
+    second: BabyDragon-Model_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BabyDragon-Model_3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1039
+        width: 362
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8c97c78d9962ee0800000000000000
+      internalID: -1286171488487356172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Model_4
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 1036
+        width: 364
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8cf2c749c32db080800000000000000
+      internalID: -9170133918857102198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Model_5
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 1039
+        width: 364
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f223886b7a3489c50800000000000000
+      internalID: 6672157235550368303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Model_6
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 1039
+        width: 364
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da15754f82e20c1b0800000000000000
+      internalID: -5638455980034928211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Model_9
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 544
+        width: 337
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 336bd396b538d0ff0800000000000000
+      internalID: -68253990709774797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Model_10
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 556
+        width: 361
+        height: 325
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7bfeaef9fd7136d0800000000000000
+      internalID: -3012488163060941958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Model_11
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 436
+        width: 58
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7799d617526c8b840800000000000000
+      internalID: 5240156030564669815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Model_14
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 76
+        width: 359
+        height: 346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42950531a9b840270800000000000000
+      internalID: 8215845114095884580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Model_15
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 52
+        width: 388
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f12d4d2b2ff8ad80800000000000000
+      internalID: -8239054957365616135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BabyDragon-Model_16
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 52
+        width: 451
+        height: 196
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c499f1f03b347310800000000000000
+      internalID: 1401810465423201476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9d5e66fb97657544ea0b93a3acb7518d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BabyDragon-Model_0: 8371255744305268761
+      BabyDragon-Model_1: 2508130021324738385
+      BabyDragon-Model_10: -3012488163060941958
+      BabyDragon-Model_11: 5240156030564669815
+      BabyDragon-Model_12: -8695166131375090137
+      BabyDragon-Model_13: 5509426381028014465
+      BabyDragon-Model_14: 8215845114095884580
+      BabyDragon-Model_15: -8239054957365616135
+      BabyDragon-Model_16: 1401810465423201476
+      BabyDragon-Model_2: 422965905013126758
+      BabyDragon-Model_3: -1286171488487356172
+      BabyDragon-Model_4: -9170133918857102198
+      BabyDragon-Model_5: 6672157235550368303
+      BabyDragon-Model_6: -5638455980034928211
+      BabyDragon-Model_7: 3806839637365308302
+      BabyDragon-Model_8: -6830543122896541939
+      BabyDragon-Model_9: -68253990709774797
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
