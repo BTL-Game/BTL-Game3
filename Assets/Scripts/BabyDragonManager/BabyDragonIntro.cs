@@ -2,34 +2,33 @@ using UnityEngine;
 
 public class PlayerIntro : MonoBehaviour
 {
-    [Header("Cấu hình di chuyển")]
-    public Vector3 targetPosition = new Vector3(-51.3f, 0, 0); // Vị trí đứng để bắt đầu chơi
-    public float introSpeed = 5f;                         // Tốc độ bay vào màn hình
-    public float startOffset = 50f;                        // Khoảng cách xuất hiện ngoài màn hình
+    [Header("Movement Settings")]
+    public Vector3 targetPosition = new Vector3(-51.3f, 0, 0); // Final position before gameplay starts
+    public float introSpeed = 20f; // Flight speed during intro
+    public float startOffset = 50f; // Spawn distance off-screen
 
-    [Header("Hoạt ảnh")]
-    public string animationToPlay = "intro_animation"; // TÊN CHÍNH XÁC của State đập cánh trong Animator
+    [Header("Animation")]
+    public string animationToPlay = "intro_animation"; // Exact Animator state name
 
     private Animator anim;
     private bool isIntroFinished = false;
 
     void Start()
     {
-        // 1. Lấy thành phần Animator
+        // 1. Cache Animator.
         anim = GetComponent<Animator>();
 
-        // 2. Đặt rồng ra ngoài màn hình bên trái
+        // 2. Place dragon off-screen to the left.
         transform.position = targetPosition - new Vector3(startOffset, 0, 0);
 
-        // 3. VÔ HIỆU HÓA Vật lý và Điều khiển (Để rồng không bị rơi khi đang Intro)
+        // 3. Disable physics and controls so intro plays safely.
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null) rb.simulated = false;
 
-        // Thay 'BabyDragonMovement' bằng tên chính xác Script di chuyển của bạn
         MonoBehaviour moveScript = GetComponent<BabyDragonMovement>(); 
         if (moveScript != null) moveScript.enabled = false;
 
-        // --- ĐÂY LÀ CÁCH 2: ÉP CHƠI HOẠT ẢNH ---
+        // Force intro animation state.
         if (anim != null)
         {
             anim.Play(animationToPlay);
@@ -40,12 +39,12 @@ public class PlayerIntro : MonoBehaviour
     {
         if (isIntroFinished) return;
 
-        // Di chuyển rồng tiến về vị trí mục tiêu (Chỉ giữ lại đoạn tính toán có hover)
+        // Move to target position with a subtle hover effect.
         Vector3 basePosition = Vector3.MoveTowards(transform.position, targetPosition, introSpeed * Time.deltaTime);
         float hover = Mathf.Sin(Time.time * 3.0f) * 0.02f; 
         transform.position = new Vector2(basePosition.x, basePosition.y + hover);
 
-        // Kiểm tra nếu đã đến nơi
+        // Finish intro when close enough to target.
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             FinishIntro();
@@ -55,9 +54,9 @@ public class PlayerIntro : MonoBehaviour
     void FinishIntro()
     {
         isIntroFinished = true;
-        transform.position = targetPosition; // Khớp vị trí chuẩn
+        transform.position = targetPosition; // Snap to exact target.
 
-        // BẬT LẠI Vật lý và Điều khiển để bắt đầu chơi thực sự
+        // Re-enable physics and controls for gameplay.
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null) rb.simulated = true;
 
@@ -65,19 +64,18 @@ public class PlayerIntro : MonoBehaviour
         if (moveScript != null) moveScript.enabled = true;
         
         if (anim != null)
-            {
-                // Ép Animator quay về trạng thái mặc định hoặc trạng thái Falling
-                // để các mũi tên (Transitions) bắt đầu có tác dụng trở lại.
-                anim.Play("falling_animation"); 
-            }
+        {
+            // Return to a gameplay-ready animation state.
+            anim.Play("falling_animation"); 
+        }
 
-        // Thông báo cho GameManager bắt đầu đẻ cột lửa
+        // Notify GameManager to start gameplay spawning.
         if (GameManager.Instance != null)
         {
             GameManager.Instance.isGameStarted = true;
         }
 
-        // Tự hủy script này sau khi hoàn thành nhiệm vụ
+        // Disable this intro behavior after completion.
         Destroy(this);
     }
 }

@@ -4,27 +4,29 @@ using UnityEngine.InputSystem;
 public class BabyDragonMovement : MonoBehaviour
 {
     [SerializeField] private float flappingStrength = 20f;
-    private Rigidbody2D rb;
+    private Rigidbody2D rigidBody2D;
     private bool isDead = false;
     private Animator animator;
     
-    void Awake() // Đổi Start thành Awake
+    void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
+
     void Update()
     {
         if (isDead) return;
 
-        bool falling = rb.linearVelocityY < 0;
+        bool falling = rigidBody2D.linearVelocityY < 0;
         animator.SetBool("isFalling", falling);
     }
+
     void OnJump(InputValue value)
     {
         if (isDead) return;
         
-        // THÊM DÒNG NÀY: Chỉ cho phép nhảy khi Intro đã xong
+        // Allow jumping only after the intro sequence is finished.
         if (GameManager.Instance != null && !GameManager.Instance.isGameStarted) return;
 
         if (value.isPressed)
@@ -35,7 +37,7 @@ public class BabyDragonMovement : MonoBehaviour
 
     void Flap()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocityX, flappingStrength);
+        rigidBody2D.linearVelocity = new Vector2(rigidBody2D.linearVelocityX, flappingStrength);
         animator.SetTrigger("isFlapping");
     }
 
@@ -53,14 +55,16 @@ public class BabyDragonMovement : MonoBehaviour
     {
         isDead = true;
         animator.SetBool("isDead", true);
-        Debug.Log("Baby Dragon is Dead :((");
-        rb.linearVelocity = Vector2.zero;
-        rb.simulated = false;
+        Debug.Log("Baby Dragon has died.");
+        rigidBody2D.linearVelocity = Vector2.zero;
+        rigidBody2D.simulated = false;
+
         ParallaxBackground[] parallax = Object.FindObjectsByType<ParallaxBackground>(FindObjectsSortMode.None);
         foreach (ParallaxBackground bg in parallax)
         {
             bg.canRoll = false;
         }
+
         PillarMovement[] pillars = Object.FindObjectsByType<PillarMovement>(FindObjectsSortMode.None);
         foreach (PillarMovement pillar in pillars)
         {
@@ -71,6 +75,18 @@ public class BabyDragonMovement : MonoBehaviour
         if (spawner != null)
         {
             spawner.canSpawn = false;
+        }
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.isGameStarted = false;
+            GameManager.Instance.CompleteBossPhase();
+        }
+
+        BossManager boss = Object.FindFirstObjectByType<BossManager>();
+        if (boss != null)
+        {
+            boss.FreezeBossForGameOver();
         }
     }
 }

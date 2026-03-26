@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &144649242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 144649243}
+  m_Layer: 0
+  m_Name: BossSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &144649243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144649242}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 110, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &345873361
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +183,7 @@ MonoBehaviour:
   minFireLength: 5
   maxFireLength: 15
   canSpawn: 1
-  distanceBetweenPillars: 12
+  distanceBetweenPillars: 15
   minSpawnRate: 0.3
 --- !u!4 &345873363
 Transform:
@@ -407,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerIntro
   targetPosition: {x: -51.3, y: 0, z: 0}
-  introSpeed: 5
+  introSpeed: 20
   startOffset: 50
   animationToPlay: intro_animation
 --- !u!1 &519420028
@@ -830,7 +861,7 @@ Transform:
   m_GameObject: {fileID: 873448648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 47, z: 0}
+  m_LocalPosition: {x: 0, y: 51.2, z: 0}
   m_LocalScale: {x: 200, y: 5.14, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -869,6 +900,10 @@ MonoBehaviour:
   gameSpeed: 5
   maxGameSpeed: 20
   speedMultiplier: 0.2
+  timeBetweenBossPhases: 30
+  pillarSpawner: {fileID: 345873362}
+  bossPrefab: {fileID: 6805229799749535444, guid: 80bf6d3c60d3632488229c3525691a2c, type: 3}
+  bossSpawnPoint: {fileID: 144649243}
 --- !u!4 &1149649548
 Transform:
   m_ObjectHideFlags: 0
@@ -1080,3 +1115,4 @@ SceneRoots:
   - {fileID: 873448650}
   - {fileID: 345873363}
   - {fileID: 1149649548}
+  - {fileID: 144649243}

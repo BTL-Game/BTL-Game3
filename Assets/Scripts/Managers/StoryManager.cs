@@ -57,9 +57,9 @@ public class StoryManager : MonoBehaviour
 
         if (nextSpriteIndex >= storySprites.Length)
         {
-            //wait 5 seconds before loading next scene
+            // Wait 5 seconds before loading the next scene.
             yield return new WaitForSeconds(5f);
-            Debug.Log("Kết thúc story. Chuyển scene...");
+            Debug.Log("Story finished. Loading next scene...");
             SceneManager.LoadScene(nextSceneName);
             yield break;
         }
