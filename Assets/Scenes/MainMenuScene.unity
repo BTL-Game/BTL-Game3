@@ -798,10 +798,7 @@ GameObject:
   - component: {fileID: 1516911000}
   - component: {fileID: 1516911002}
   - component: {fileID: 1516911001}
-<<<<<<< HEAD
   - component: {fileID: 1516911003}
-=======
->>>>>>> 533246928e758602ea576ced633f41b6e083b2c7
   m_Layer: 0
   m_Name: QuitButton
   m_TagString: Untagged
@@ -866,7 +863,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516910999}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
 --- !u!114 &1516911003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,8 +876,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonController
   glowObject: {fileID: 1190034391}
-=======
->>>>>>> 533246928e758602ea576ced633f41b6e083b2c7
 --- !u!1 &1684440740
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,10 +887,7 @@ GameObject:
   - component: {fileID: 1684440741}
   - component: {fileID: 1684440743}
   - component: {fileID: 1684440742}
-<<<<<<< HEAD
   - component: {fileID: 1684440744}
-=======
->>>>>>> 533246928e758602ea576ced633f41b6e083b2c7
   m_Layer: 0
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -961,7 +952,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684440740}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
 --- !u!114 &1684440744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,8 +965,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonController
   glowObject: {fileID: 1032583619}
-=======
->>>>>>> 533246928e758602ea576ced633f41b6e083b2c7
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
