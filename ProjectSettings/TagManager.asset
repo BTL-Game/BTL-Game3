@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - Collectible
+  - Border
   layers:
   - Default
   - TransparentFX

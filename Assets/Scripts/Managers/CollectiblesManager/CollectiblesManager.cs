@@ -10,7 +10,7 @@ public class CollectibleData
 }
 public class CollectiblesManager : MonoBehaviour
 {
-    public enum ItemType { Coin, Shield, Invincible, Speed }
+    public enum ItemType { Coin, Shield, Invincible, Speed, GravityShift }
     public ItemType type;
     public float value = 10f;
 
@@ -60,6 +60,9 @@ public class CollectiblesManager : MonoBehaviour
                 if (GameManager.Instance != null) {
                     GameManager.Instance.SpeedUp(5f, value);
                 }
+                break;
+            case ItemType.GravityShift:
+                dragon.ActivateGravityShift(value);
                 break;
         }
     }

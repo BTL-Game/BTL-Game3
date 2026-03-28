@@ -13,6 +13,7 @@ public class BabyDragonMovement : MonoBehaviour
     // Collectible states
     private bool hasShield = false;
     private bool isInvincible = false;
+    private bool isGravityReversed = false;
     
     void Awake()
     {
@@ -25,7 +26,7 @@ public class BabyDragonMovement : MonoBehaviour
     {
         if (isDead) return;
 
-        bool falling = rigidBody2D.linearVelocityY < 0;
+        bool falling = isGravityReversed ? rigidBody2D.linearVelocityY > 0 : rigidBody2D.linearVelocityY < 0;
         animator.SetBool("isFalling", falling);
     }
 
@@ -133,5 +134,38 @@ public class BabyDragonMovement : MonoBehaviour
         }
 
         Debug.Log("Invincibility ended!");
+    }
+
+    private Coroutine gravityRoutine;
+
+    public void ActivateGravityShift(float duration)
+    {
+        if (gravityRoutine != null)
+        {
+            StopCoroutine(gravityRoutine);
+        }
+        else
+        {
+            isGravityReversed = true;
+            rigidBody2D.gravityScale *= -1;
+            flappingStrength *= -1;
+            if (spriteRenderer != null) spriteRenderer.flipY = true;
+            Debug.Log("Gravity Shifted!");
+        }
+
+        gravityRoutine = StartCoroutine(GravityShiftRoutine(duration));
+    }
+
+    private System.Collections.IEnumerator GravityShiftRoutine(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        isGravityReversed = false;
+        rigidBody2D.gravityScale = Mathf.Abs(rigidBody2D.gravityScale);
+        flappingStrength = Mathf.Abs(flappingStrength);
+        if (spriteRenderer != null) spriteRenderer.flipY = false;
+
+        gravityRoutine = null;
+        Debug.Log("Gravity Restored!");
     }
 }

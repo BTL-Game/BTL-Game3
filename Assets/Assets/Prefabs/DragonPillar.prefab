@@ -248,6 +248,9 @@ MonoBehaviour:
   - name: Invincible
     prefab: {fileID: 905506340185138351, guid: b67ad338f8fae48488bde663d83a85e9, type: 3}
     spawnWeight: 5
+  - name: GravityShift
+    prefab: {fileID: 2398825153067473480, guid: 6c0ffd2dfd1f3234a82014ba59c14283, type: 3}
+    spawnWeight: 5
 --- !u!114 &9124285140468794543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,8 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ae9d987e6e76c4a93ec3576685effc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MutantPillar
-  speed: 2
-  height: 2
+  speed: 4
+  height: 4
 --- !u!1 &6118523411551184077
 GameObject:
   m_ObjectHideFlags: 0
