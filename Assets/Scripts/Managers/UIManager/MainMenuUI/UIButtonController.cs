@@ -3,19 +3,35 @@ using UnityEngine.EventSystems;
 
 public class UIButtonController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject glowObject; // Assign PlayButton_Glow here.
+    public GameObject glowObject;
+    public AudioClip hoverSound; // Kéo file âm thanh vào đây
+    private AudioSource audioSource;
 
-    void Start() => glowObject.SetActive(false); // Hidden by default.
+    void Start()
+    {
+        if (glowObject != null) glowObject.SetActive(false);
+                audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) 
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+                audioSource.playOnAwake = false;
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (glowObject != null) glowObject.SetActive(true);
-        transform.localScale = Vector3.one * 1.05f; // Slightly enlarge main button.
+        transform.localScale = Vector3.one * 1.05f;
+
+        if (hoverSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(hoverSound);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (glowObject != null) glowObject.SetActive(false);
-        transform.localScale = Vector3.one; // Restore original scale.
+        transform.localScale = Vector3.one;
     }
 }

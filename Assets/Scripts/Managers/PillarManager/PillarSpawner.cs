@@ -3,8 +3,8 @@ using UnityEngine;
 public class PillarSpawner : MonoBehaviour
 {
     public GameObject pillarPrefab;
-    public float minFireLength = 5f;
-    public float maxFireLength = 15f;
+    public float minLength = 5f;
+    public float maxLength = 15f;
     private float timer = 0f;
     public bool canSpawn = true;
     public float distanceBetweenPillars = 15f;
@@ -31,14 +31,7 @@ public class PillarSpawner : MonoBehaviour
 
     void SpawnPillar()
     {
-        GameObject newPillar = Instantiate(pillarPrefab, new Vector3(93, 0, 0), Quaternion.identity);
-        PillarSizeController sizeController = newPillar.GetComponent<PillarSizeController>();
-
-        if (sizeController != null)
-        {
-            float randomTop = Random.Range(minFireLength, maxFireLength);
-            float randomBottom = Random.Range(minFireLength, maxFireLength);
-            sizeController.SetupPillar(randomTop, randomBottom);
-        }
+        float randomY = Random.Range(minLength, maxLength);
+        GameObject newPillar = Instantiate(pillarPrefab, new Vector3(93, randomY, 0), Quaternion.identity);
     }
 }

@@ -29,6 +29,8 @@ public class BabyDragonMovement : MonoBehaviour
         // Allow jumping only after the intro sequence is finished.
         if (GameManager.Instance != null && !GameManager.Instance.isGameStarted) return;
 
+        if (PauseMenuMangaer.isGamePaused) return;
+
         if (value.isPressed)
         {
             Flap();

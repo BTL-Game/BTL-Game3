@@ -352,6 +352,7 @@ MonoBehaviour:
   - {fileID: -7255154345229648261, guid: 317e0f7748896ee448b9b0649fb2d623, type: 3}
   transitionTime: 1
   nextSceneName: GameplayScene
+  gameplayMusic: {fileID: 8300000, guid: 5bb42920a9125c44faf7a46195b6f240, type: 3}
 --- !u!4 &1483159608
 Transform:
   m_ObjectHideFlags: 0

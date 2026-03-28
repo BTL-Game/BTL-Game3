@@ -1,0 +1,205 @@
+fileFormatVersion: 2
+guid: c96f851c25c5c534d9bb58e2a07bf645
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2628961508278406255
+    second: sound_buttons_0
+  - first:
+      213: -5445784581417732004
+    second: sound_buttons_1
+  - first:
+      213: 1618567271229720696
+    second: sound_buttons_2
+  - first:
+      213: 5318012663898314546
+    second: sound_buttons_3
+  - first:
+      213: -513508681030606268
+    second: sound_buttons_4
+  - first:
+      213: -8860056670340545453
+    second: sound_buttons_5
+  - first:
+      213: 548131281036412446
+    second: sound_buttons_6
+  - first:
+      213: -4633327619114729338
+    second: sound_buttons_7
+  - first:
+      213: -7320293830551796572
+    second: sound_buttons_8
+  - first:
+      213: -2578836761872581939
+    second: sound_buttons_9
+  - first:
+      213: 2143586263140628067
+    second: sound_buttons_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sound_buttons_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 70
+        width: 257
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 193f3e2ef6d048bd0800000000000000
+      internalID: -2628961508278406255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sound_buttons_4
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 70
+        width: 224
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44267164396afd8f0800000000000000
+      internalID: -513508681030606268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4be4db1ac04cf774bb1a5529654f7e76
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sound_buttons_0: -2628961508278406255
+      sound_buttons_1: -5445784581417732004
+      sound_buttons_10: 2143586263140628067
+      sound_buttons_2: 1618567271229720696
+      sound_buttons_3: 5318012663898314546
+      sound_buttons_4: -513508681030606268
+      sound_buttons_5: -8860056670340545453
+      sound_buttons_6: 548131281036412446
+      sound_buttons_7: -4633327619114729338
+      sound_buttons_8: -7320293830551796572
+      sound_buttons_9: -2578836761872581939
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

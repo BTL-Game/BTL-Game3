@@ -16,6 +16,7 @@ public class StoryManager : MonoBehaviour
     private int nextSpriteIndex = 1;
     private bool isTransitioning = false;
 
+    public AudioClip gameplayMusic; // Assign the gameplay music AudioSource in the Inspector.
     void Start()
     {
         if (storySprites.Length < 2)
@@ -60,6 +61,10 @@ public class StoryManager : MonoBehaviour
             // Wait 5 seconds before loading the next scene.
             yield return new WaitForSeconds(5f);
             Debug.Log("Story finished. Loading next scene...");
+            if(MusicManager.instance != null)
+            {
+                MusicManager.instance.ChangeMusicWithFade(gameplayMusic); // Stop music with fade out.
+            }
             SceneManager.LoadScene(nextSceneName);
             yield break;
         }
