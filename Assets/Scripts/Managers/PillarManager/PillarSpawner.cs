@@ -3,6 +3,9 @@ using UnityEngine;
 public class PillarSpawner : MonoBehaviour
 {
     public GameObject pillarPrefab;
+    [Header("Spawn Chance (%)")]
+    [Range(0f, 100f)] 
+    public float mutantChance = 5f;
     public float minLength = 5f;
     public float maxLength = 15f;
     private float timer = 0f;
@@ -31,7 +34,19 @@ public class PillarSpawner : MonoBehaviour
 
     void SpawnPillar()
     {
-        float randomY = Random.Range(minLength, maxLength);
-        GameObject newPillar = Instantiate(pillarPrefab, new Vector3(93, randomY, 0), Quaternion.identity);
+        GameObject newPillar = Instantiate(pillarPrefab, transform.position, Quaternion.identity);
+
+        float randomValue = Random.Range(0f, 100f);
+
+        if (randomValue <= mutantChance)
+        {
+            MutantPillar mutantScript = newPillar.GetComponent<MutantPillar>();
+            
+            if (mutantScript != null)
+            {
+                mutantScript.enabled = true;
+                Debug.Log("Mutant pillar spawned!");
+            }
+        }
     }
 }

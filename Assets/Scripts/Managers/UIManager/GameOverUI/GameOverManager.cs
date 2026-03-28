@@ -1,15 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro; // QUAN TRỌNG: Thêm dòng này để dùng TextMeshPro
+using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
     public static bool isGameOver = false;
     public GameObject GameOverUI;
-    public TextMeshProUGUI scoreText; // Kéo đối tượng chữ "Score:" vào đây
+    public TextMeshProUGUI scoreText;
     public AudioClip mainMenuMusic;
 
-    // Hàm này sẽ được gọi khi rồng chết
     public void Setup(int score)
     {
         if (GameOverUI != null) 

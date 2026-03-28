@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SoundToggle : MonoBehaviour
 {
-    [Header("Cấu hình Sprite")]
+    [Header("Sprite Settings")]
     public Sprite soundOnSprite;
     public Sprite soundOffSprite;
     public Image buttonImage;
@@ -21,7 +21,6 @@ public class SoundToggle : MonoBehaviour
     {
         isMuted = !isMuted;
         
-        // Lưu trạng thái vào máy
         PlayerPrefs.SetInt("Muted", isMuted ? 1 : 0);
         
         UpdateUI();
@@ -30,13 +29,11 @@ public class SoundToggle : MonoBehaviour
 
     void UpdateUI()
     {
-        // Đổi hình ảnh cái loa
         buttonImage.sprite = isMuted ? soundOffSprite : soundOnSprite;
     }
 
     void ApplyAudioSettings()
     {
-        // Tắt/Mở toàn bộ âm thanh trong game
         AudioListener.pause = isMuted;
     }
 }

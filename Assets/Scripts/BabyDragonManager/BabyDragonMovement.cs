@@ -74,6 +74,10 @@ public class BabyDragonMovement : MonoBehaviour
             Debug.Log("GAME OVER!");
             Die();
         }
+        if (other.CompareTag("Border")){
+            Debug.Log("Hit the border! Game Over!");
+            Die();
+        }
     }
 
     void Die()

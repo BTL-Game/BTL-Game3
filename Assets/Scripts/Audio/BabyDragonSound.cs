@@ -4,7 +4,6 @@ public class BabyDragonSound : MonoBehaviour
 {
     private AudioSource audioSource;
 
-    // Khai báo riêng từng loại âm thanh
     [Header("Audio Clips")]
     public AudioClip flappingSound;
     public AudioClip deathSound;
@@ -17,7 +16,6 @@ public class BabyDragonSound : MonoBehaviour
         }
     }
 
-    // Gọi hàm này tại frame vỗ cánh
     public void PlayFlappingSound()
     {
         if (flappingSound != null)
@@ -26,7 +24,6 @@ public class BabyDragonSound : MonoBehaviour
         }
     }
 
-    // Gọi hàm này khi rồng chết
     public void PlayDeathSound()
     {
         if (deathSound != null)

@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class UIButtonController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject glowObject;
-    public AudioClip hoverSound; // Kéo file âm thanh vào đây
+    public AudioClip hoverSound;
     private AudioSource audioSource;
 
     void Start()

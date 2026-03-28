@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 8901042822916058267}
   - component: {fileID: 8364427364573992958}
   - component: {fileID: 3996724377981001439}
+  - component: {fileID: 9124285140468794543}
   m_Layer: 0
   m_Name: DragonPillar
   m_TagString: Obstacle
@@ -247,6 +248,20 @@ MonoBehaviour:
   - name: Invincible
     prefab: {fileID: 905506340185138351, guid: b67ad338f8fae48488bde663d83a85e9, type: 3}
     spawnWeight: 5
+--- !u!114 &9124285140468794543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365660443727175284}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ae9d987e6e76c4a93ec3576685effc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MutantPillar
+  speed: 2
+  height: 2
 --- !u!1 &6118523411551184077
 GameObject:
   m_ObjectHideFlags: 0

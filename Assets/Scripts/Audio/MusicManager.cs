@@ -29,7 +29,6 @@ public class MusicManager : MonoBehaviour
     {
         if (musicSource.clip == newMusic) return;
         
-        // Chạy tiến trình chuyển nhạc song song với game
         StartCoroutine(FadeTrack(newMusic));
     }
     private IEnumerator FadeTrack(AudioClip newMusic)
