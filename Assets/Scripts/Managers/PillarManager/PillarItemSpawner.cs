@@ -5,7 +5,7 @@ public class PillarItemSpawner : MonoBehaviour
 {
     public Transform spawnPoint;
     [Range(0f, 1f)]
-    public float globalSpawnChance = 0.6f;
+    public float globalSpawnChance = 0.5f;
 
     public List<CollectibleData> lootTable;
 
