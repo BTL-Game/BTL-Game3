@@ -179,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8901042822916058267}
   - component: {fileID: 8364427364573992958}
+  - component: {fileID: 3996724377981001439}
   m_Layer: 0
   m_Name: DragonPillar
   m_TagString: Obstacle
@@ -219,6 +220,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PillarMovement
   deadZone: -90
   canMove: 1
+--- !u!114 &3996724377981001439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365660443727175284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea399a2d8ddee1c4ab32d4109c691370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PillarItemSpawner
+  spawnPoint: {fileID: 4339605881657258992}
+  globalSpawnChance: 0.6
+  lootTable:
+  - name: Coin
+    prefab: {fileID: 3116210818731696554, guid: 4c0156105f4629449ab8e45eb6cb2455, type: 3}
+    spawnWeight: 75
+  - name: SpeedDebuff
+    prefab: {fileID: 3556415483388196469, guid: 15964c18fc1838e4eacb517608349591, type: 3}
+    spawnWeight: 10
+  - name: Shield
+    prefab: {fileID: 4529159625470359793, guid: 387ef1c42bdbb7549a857f55004c67a5, type: 3}
+    spawnWeight: 10
+  - name: Invincible
+    prefab: {fileID: 905506340185138351, guid: b67ad338f8fae48488bde663d83a85e9, type: 3}
+    spawnWeight: 5
 --- !u!1 &6118523411551184077
 GameObject:
   m_ObjectHideFlags: 0

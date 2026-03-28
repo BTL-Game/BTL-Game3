@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public float maxGameSpeed = 20f;
     public float speedMultiplier = 0.2f;
 
+    [Header("Score Settings")]
+    public int score = 0;
+
     [Header("Boss Phase Settings")]
     public float timeBetweenBossPhases = 30f;
     public PillarSpawner pillarSpawner;
@@ -102,5 +105,25 @@ public class GameManager : MonoBehaviour
     public void CompleteBossPhase()
     {
         IsBossPhaseActive = false;
+    }
+
+    public void AddScore(int amount)
+    {
+        score += amount;
+        Debug.Log("Score: " + score);
+    }
+
+    public void SpeedUp(float extraSpeed, float duration)
+    {
+        StartCoroutine(SpeedUpRoutine(extraSpeed, duration));
+    }
+
+    private IEnumerator SpeedUpRoutine(float extraSpeed, float duration)
+    {
+        gameSpeed += extraSpeed;
+        Debug.Log("Speed increased by " + extraSpeed + "!");
+        yield return new WaitForSeconds(duration);
+        gameSpeed -= extraSpeed;
+        Debug.Log("Speed returned to normal.");
     }
 }
