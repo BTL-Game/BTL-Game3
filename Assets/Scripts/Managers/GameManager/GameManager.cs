@@ -126,4 +126,50 @@ public class GameManager : MonoBehaviour
         gameSpeed -= extraSpeed;
         Debug.Log("Speed returned to normal.");
     }
+
+    public void TriggerGameOver()
+    {
+        isGameStarted = false;
+        CompleteBossPhase();
+
+        ParallaxBackground[] parallax = Object.FindObjectsByType<ParallaxBackground>(FindObjectsSortMode.None);
+        foreach (ParallaxBackground bg in parallax)
+        {
+            bg.canRoll = false;
+        }
+
+        PillarMovement[] pillars = Object.FindObjectsByType<PillarMovement>(FindObjectsSortMode.None);
+        foreach (PillarMovement pillar in pillars)
+        {
+            pillar.canMove = false;
+        }
+
+        if (pillarSpawner == null)
+        {
+            pillarSpawner = Object.FindFirstObjectByType<PillarSpawner>();
+        }
+        if (pillarSpawner != null)
+        {
+            pillarSpawner.canSpawn = false;
+        }
+
+        BossManager boss = Object.FindFirstObjectByType<BossManager>();
+        if (boss != null)
+        {
+            boss.FreezeBossForGameOver();
+        }
+
+        StartCoroutine(ShowGameOverUIRoutine());
+    }
+
+    private IEnumerator ShowGameOverUIRoutine()
+    {
+        yield return new WaitForSeconds(3f); // Wait 3 seconds so player can see they died
+
+        GameOverManager gameOverManager = Object.FindFirstObjectByType<GameOverManager>(FindObjectsInactive.Include);
+        if (gameOverManager != null)
+        {
+            gameOverManager.Setup(score);
+        }
+    }
 }

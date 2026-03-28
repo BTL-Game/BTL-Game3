@@ -36,7 +36,7 @@ public class BabyDragonMovement : MonoBehaviour
         // Allow jumping only after the intro sequence is finished.
         if (GameManager.Instance != null && !GameManager.Instance.isGameStarted) return;
 
-        if (PauseMenuMangaer.isGamePaused) return;
+        if (PauseMenuManager.isGamePaused) return;
 
         if (value.isPressed)
         {
@@ -84,34 +84,9 @@ public class BabyDragonMovement : MonoBehaviour
         rigidBody2D.linearVelocity = Vector2.zero;
         rigidBody2D.simulated = false;
 
-        ParallaxBackground[] parallax = Object.FindObjectsByType<ParallaxBackground>(FindObjectsSortMode.None);
-        foreach (ParallaxBackground bg in parallax)
-        {
-            bg.canRoll = false;
-        }
-
-        PillarMovement[] pillars = Object.FindObjectsByType<PillarMovement>(FindObjectsSortMode.None);
-        foreach (PillarMovement pillar in pillars)
-        {
-            pillar.canMove = false;
-        }
-
-        PillarSpawner spawner = Object.FindFirstObjectByType<PillarSpawner>();
-        if (spawner != null)
-        {
-            spawner.canSpawn = false;
-        }
-
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.isGameStarted = false;
-            GameManager.Instance.CompleteBossPhase();
-        }
-
-        BossManager boss = Object.FindFirstObjectByType<BossManager>();
-        if (boss != null)
-        {
-            boss.FreezeBossForGameOver();
+            GameManager.Instance.TriggerGameOver();
         }
     }
 
