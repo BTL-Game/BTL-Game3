@@ -18,3 +18,5 @@ MonoBehaviour:
   midBG: {fileID: 2800000, guid: c7db814872292ea43bb7d58ec84a2877, type: 3}
   nearBG: {fileID: 2800000, guid: 6c4918b5d8d73724080eb60fc80d1cfe, type: 3}
   pillarPrefab: {fileID: 5365660443727175284, guid: bf2705ef4dd26e4499c3fabbbbbd184c, type: 3}
+  mapBossPrefab: {fileID: 6805229799749535444, guid: 80bf6d3c60d3632488229c3525691a2c, type: 3}
+  timeBetweenBossPhases: 36

@@ -16,7 +16,7 @@ MonoBehaviour:
   backgroundMusic: {fileID: 8300000, guid: 5bb42920a9125c44faf7a46195b6f240, type: 3}
   farBG: {fileID: 2800000, guid: 0dc5cc8831d68c848a3c66de9e69a9c3, type: 3}
   midBG: {fileID: 2800000, guid: 92870121552c97346959be3a951b9f10, type: 3}
-  nearBG: {fileID: 2800000, guid: 8a445cdab6cb9914084df951f04acc6b, type: 3}
+  nearBG: {fileID: 0}
   pillarPrefab: {fileID: 5365660443727175284, guid: bf2705ef4dd26e4499c3fabbbbbd184c, type: 3}
   coldRate: 10
   mutantSnowflakePrefab: {fileID: 0}
