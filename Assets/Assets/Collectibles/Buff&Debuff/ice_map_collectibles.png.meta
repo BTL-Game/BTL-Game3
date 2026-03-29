@@ -1,0 +1,605 @@
+fileFormatVersion: 2
+guid: 59a734f64e99cf24da7fb6ed561ca475
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2468305144847097050
+    second: ice_map_collectibles_0
+  - first:
+      213: -4921762769901108053
+    second: ice_map_collectibles_1
+  - first:
+      213: -8329173865341740195
+    second: ice_map_collectibles_2
+  - first:
+      213: -1113792742261143602
+    second: ice_map_collectibles_3
+  - first:
+      213: 3645052589315288232
+    second: ice_map_collectibles_4
+  - first:
+      213: -5005872154383451401
+    second: ice_map_collectibles_5
+  - first:
+      213: -1682510238322336047
+    second: ice_map_collectibles_6
+  - first:
+      213: -3897500806300775321
+    second: ice_map_collectibles_7
+  - first:
+      213: 6469534395048735379
+    second: ice_map_collectibles_8
+  - first:
+      213: 6722906939666366014
+    second: ice_map_collectibles_9
+  - first:
+      213: 3712769369989020474
+    second: ice_map_collectibles_10
+  - first:
+      213: 2437113040909906425
+    second: ice_map_collectibles_11
+  - first:
+      213: -2793437719959579363
+    second: ice_map_collectibles_12
+  - first:
+      213: 8443413099309638498
+    second: ice_map_collectibles_13
+  - first:
+      213: -5919046861970315527
+    second: ice_map_collectibles_14
+  - first:
+      213: -5329144509242946119
+    second: ice_map_collectibles_15
+  - first:
+      213: 633677577204285970
+    second: ice_map_collectibles_16
+  - first:
+      213: 4702158262253111847
+    second: ice_map_collectibles_17
+  - first:
+      213: -4182567495036171367
+    second: ice_map_collectibles_18
+  - first:
+      213: 8437456034769961040
+    second: ice_map_collectibles_19
+  - first:
+      213: -3991664035042304836
+    second: ice_map_collectibles_20
+  - first:
+      213: 2828422022603970033
+    second: ice_map_collectibles_21
+  - first:
+      213: 6981808941064220581
+    second: ice_map_collectibles_22
+  - first:
+      213: -5324527766545502172
+    second: ice_map_collectibles_23
+  - first:
+      213: 8047653971763831220
+    second: ice_map_collectibles_24
+  - first:
+      213: 3650574263347095313
+    second: ice_map_collectibles_25
+  - first:
+      213: -2900248620985572981
+    second: ice_map_collectibles_26
+  - first:
+      213: 5333135269273768549
+    second: ice_map_collectibles_27
+  - first:
+      213: 3951162040373662025
+    second: ice_map_collectibles_28
+  - first:
+      213: 4520351313656791942
+    second: ice_map_collectibles_29
+  - first:
+      213: 5522746483849044652
+    second: ice_map_collectibles_30
+  - first:
+      213: 6071125887692250631
+    second: ice_map_collectibles_31
+  - first:
+      213: 9172914589863882112
+    second: ice_map_collectibles_32
+  - first:
+      213: 995674962496673700
+    second: ice_map_collectibles_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ice_map_collectibles_2
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 238
+        width: 47
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5b96d3df74d86c80800000000000000
+      internalID: -8329173865341740195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_3
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 237
+        width: 58
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec7cd1ce6630b80f0800000000000000
+      internalID: -1113792742261143602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_4
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 238
+        width: 56
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ac61c58404d59230800000000000000
+      internalID: 3645052589315288232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_6
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 228
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ded6d14ad586a8e0800000000000000
+      internalID: -1682510238322336047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_8
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 236
+        width: 42
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3923d07514768c950800000000000000
+      internalID: 6469534395048735379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_9
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 236
+        width: 49
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3e72dcfd309c4d50800000000000000
+      internalID: 6722906939666366014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_10
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 237
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b75272218668330800000000000000
+      internalID: 3712769369989020474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_13
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 236
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2632b3c8a770d2570800000000000000
+      internalID: 8443413099309638498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_22
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 118
+        width: 82
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5af67cd9d3e54e060800000000000000
+      internalID: 6981808941064220581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_24
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 118
+        width: 74
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b1ae3626a20faf60800000000000000
+      internalID: 8047653971763831220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_26
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 7
+        width: 82
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81a6d1de3f30c7d0800000000000000
+      internalID: -2900248620985572981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_27
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 6
+        width: 82
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5629b20754a130a40800000000000000
+      internalID: 5333135269273768549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_28
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 14
+        width: 81
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 941da7a01f855d630800000000000000
+      internalID: 3951162040373662025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_31
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 13
+        width: 74
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70e139224d8f04450800000000000000
+      internalID: 6071125887692250631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_32
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 6
+        width: 82
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08da5d3283dbc4f70800000000000000
+      internalID: 9172914589863882112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_map_collectibles_33
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 6
+        width: 82
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a75d536a1951dd00800000000000000
+      internalID: 995674962496673700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 33455e4f918e6de4ab547033cfb6a5ec
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ice_map_collectibles_0: -2468305144847097050
+      ice_map_collectibles_1: -4921762769901108053
+      ice_map_collectibles_10: 3712769369989020474
+      ice_map_collectibles_11: 2437113040909906425
+      ice_map_collectibles_12: -2793437719959579363
+      ice_map_collectibles_13: 8443413099309638498
+      ice_map_collectibles_14: -5919046861970315527
+      ice_map_collectibles_15: -5329144509242946119
+      ice_map_collectibles_16: 633677577204285970
+      ice_map_collectibles_17: 4702158262253111847
+      ice_map_collectibles_18: -4182567495036171367
+      ice_map_collectibles_19: 8437456034769961040
+      ice_map_collectibles_2: -8329173865341740195
+      ice_map_collectibles_20: -3991664035042304836
+      ice_map_collectibles_21: 2828422022603970033
+      ice_map_collectibles_22: 6981808941064220581
+      ice_map_collectibles_23: -5324527766545502172
+      ice_map_collectibles_24: 8047653971763831220
+      ice_map_collectibles_25: 3650574263347095313
+      ice_map_collectibles_26: -2900248620985572981
+      ice_map_collectibles_27: 5333135269273768549
+      ice_map_collectibles_28: 3951162040373662025
+      ice_map_collectibles_29: 4520351313656791942
+      ice_map_collectibles_3: -1113792742261143602
+      ice_map_collectibles_30: 5522746483849044652
+      ice_map_collectibles_31: 6071125887692250631
+      ice_map_collectibles_32: 9172914589863882112
+      ice_map_collectibles_33: 995674962496673700
+      ice_map_collectibles_4: 3645052589315288232
+      ice_map_collectibles_5: -5005872154383451401
+      ice_map_collectibles_6: -1682510238322336047
+      ice_map_collectibles_7: -3897500806300775321
+      ice_map_collectibles_8: 6469534395048735379
+      ice_map_collectibles_9: 6722906939666366014
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

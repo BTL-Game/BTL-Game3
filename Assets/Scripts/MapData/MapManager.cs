@@ -15,6 +15,8 @@ public class MapManager : MonoBehaviour
     
     [Tooltip("Gắn Main Pillar Spawner")]
     public PillarSpawner pillarSpawner;
+    [Tooltip("Gắn Item Spawner (chỉ dùng cho map có item như Ice Map)")]
+    public ItemSpawner itemSpawner;
     
     [Tooltip("Gắn AudioSource chứa nhạc nền của game")]
     public AudioSource musicSource;
@@ -88,14 +90,14 @@ public class MapManager : MonoBehaviour
         // 3. Đổi loại cột (Pillar)
         if (pillarSpawner != null)
         {
+            pillarSpawner.SetPillarPrefab(data.pillarPrefab);
             if (data.pillarPrefab != null)
             {
-                pillarSpawner.SetPillarPrefab(data.pillarPrefab);
                 Debug.Log($"MapManager: Đã truyền Pillar Prefab ({data.pillarPrefab.name}) cho PillarSpawner.");
             }
             else
             {
-                Debug.LogWarning("MapManager: File MapData hiện tại chưa có Pillar Prefab!");
+                Debug.Log("MapManager: File MapData hiện tại chưa có Pillar Prefab, tắt tính năng spawn cột.");
             }
         }
         else
@@ -107,15 +109,36 @@ public class MapManager : MonoBehaviour
         if (data is IceMapData iceData)
         {
             Debug.Log($"Applied Ice Map! Cold Rate is now: {iceData.coldRate}");
+            if (pillarSpawner != null) pillarSpawner.gameObject.SetActive(false);
+            if (itemSpawner != null) itemSpawner.gameObject.SetActive(true);
+            
+            // Bật hệ thống lạnh (ColdSystem)
+            if (ColdSystem.Instance != null)
+            {
+                ColdSystem.Instance.SetActive(true, iceData.coldRate);
+            }
+
             // Reset Boss về null khi ở map băng
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.bossPrefab = null;
                 Debug.Log("Đã tắt Boss vì đây là Ice Map.");
             }
+            itemSpawner.snowflakePrefab = iceData.snowflakePrefab;
+            itemSpawner.mutantSnowflakePrefab = iceData.mutantSnowflakePrefab;
+            itemSpawner.flamePrefab = iceData.firePrefab;
         }
         else if (data is VolcanicMapData volData)
         {
+            if (pillarSpawner != null) pillarSpawner.gameObject.SetActive(true);
+            if (itemSpawner != null) itemSpawner.gameObject.SetActive(false);
+            
+            // Tắt hệ thống lạnh (ColdSystem)
+            if (ColdSystem.Instance != null)
+            {
+                ColdSystem.Instance.SetActive(false);
+            }
+
             if (GameManager.Instance != null && volData.mapBossPrefab != null)
             {
                 GameManager.Instance.bossPrefab = volData.mapBossPrefab;
@@ -125,6 +148,15 @@ public class MapManager : MonoBehaviour
         }
         else
         {
+            if (pillarSpawner != null) pillarSpawner.gameObject.SetActive(true);
+            if (itemSpawner != null) itemSpawner.gameObject.SetActive(false);
+
+            // Tắt hệ thống lạnh (ColdSystem)
+            if (ColdSystem.Instance != null)
+            {
+                ColdSystem.Instance.SetActive(false);
+            }
+
             // Các map thường khác cũng không có Boss
             if (GameManager.Instance != null)
             {

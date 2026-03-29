@@ -10,10 +10,14 @@ public class BabyDragonMovement : MonoBehaviour
     public GameObject ShieldObject;
     private SpriteRenderer spriteRenderer;
 
+    [Header("Frozen State")]
+    public Sprite frozenSprite;
+
     // Collectible states
     private bool hasShield = false;
     private bool isInvincible = false;
     private bool isGravityReversed = false;
+    private bool isFrozen = false;
     
     void Awake()
     {
@@ -24,7 +28,7 @@ public class BabyDragonMovement : MonoBehaviour
 
     void Update()
     {
-        if (isDead) return;
+        if (isDead || isFrozen) return;
 
         bool falling = isGravityReversed ? rigidBody2D.linearVelocityY > 0 : rigidBody2D.linearVelocityY < 0;
         animator.SetBool("isFalling", falling);
@@ -32,7 +36,7 @@ public class BabyDragonMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (isDead) return;
+        if (isDead || isFrozen) return;
         
         // Allow jumping only after the intro sequence is finished.
         if (GameManager.Instance != null && !GameManager.Instance.isGameStarted) return;
@@ -167,5 +171,53 @@ public class BabyDragonMovement : MonoBehaviour
 
         gravityRoutine = null;
         Debug.Log("Gravity Restored!");
+    }
+
+    private Coroutine freezeRoutine;
+    private float preFreezeGravity = 3f; // Giá trị mặc định an toàn
+
+    public void FreezeDragon(float duration)
+    {
+        if (freezeRoutine != null)
+        {
+            StopCoroutine(freezeRoutine);
+        }
+        else
+        {
+            preFreezeGravity = rigidBody2D.gravityScale;
+        }
+
+        freezeRoutine = StartCoroutine(FreezeRoutine(duration));
+    }
+
+    private System.Collections.IEnumerator FreezeRoutine(float duration)
+    {
+        isFrozen = true;
+        rigidBody2D.linearVelocity = Vector2.zero;
+        if (rigidBody2D.gravityScale != 0f) {
+            preFreezeGravity = rigidBody2D.gravityScale;
+        }
+        rigidBody2D.gravityScale = 0f;
+        
+        // Tắt animator để có thể đè sprite tĩnh lên
+        animator.enabled = false; 
+        if (spriteRenderer != null && frozenSprite != null)
+        {
+            spriteRenderer.sprite = frozenSprite;
+        }
+        
+        Debug.Log($"Dragon is completely frozen for {duration} seconds!");
+
+        yield return new WaitForSeconds(duration);
+
+        isFrozen = false;
+        rigidBody2D.gravityScale = preFreezeGravity;
+        
+        // Bật lại animator để tiếp tục chạy animation bình thường
+        animator.enabled = true; 
+        animator.speed = 1f;
+
+        freezeRoutine = null;
+        Debug.Log("Dragon is unfrozen!");
     }
 }

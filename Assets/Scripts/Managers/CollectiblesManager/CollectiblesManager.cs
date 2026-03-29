@@ -10,7 +10,7 @@ public class CollectibleData
 }
 public class CollectiblesManager : MonoBehaviour
 {
-    public enum ItemType { Coin, Shield, Invincible, Speed, GravityShift }
+    public enum ItemType { Coin, Shield, Invincible, Speed, GravityShift, Flame, Snowflake, MutantSnowflake}
     public ItemType type;
     public float value = 10f;
 
@@ -63,6 +63,16 @@ public class CollectiblesManager : MonoBehaviour
                 break;
             case ItemType.GravityShift:
                 dragon.ActivateGravityShift(value);
+                break;
+            case ItemType.Flame:
+                if (ColdSystem.Instance != null) ColdSystem.Instance.DecreaseCold(30f);
+                break;
+            case ItemType.Snowflake:
+                if (ColdSystem.Instance != null) ColdSystem.Instance.IncreaseCold(20f);
+                break;
+            case ItemType.MutantSnowflake:
+                if (ColdSystem.Instance != null) ColdSystem.Instance.IncreaseCold(20f);
+                dragon.FreezeDragon(5f);
                 break;
         }
     }

@@ -5,6 +5,9 @@ using UnityEngine;
 public class IceMapData : BaseMapData 
 {
     [Header("--- CƠ CHẾ RIÊNG CỦA MAP BĂNG ---")]
-    public float coldRate = 10f;
-    public GameObject mutantSnowflakePrefab;
+    public GameObject snowflakePrefab;       // Bông tuyết thường (tăng lạnh ít)
+    public GameObject mutantSnowflakePrefab; // Bông tuyết đột biến (đóng băng)
+    public GameObject firePrefab;            // Cục lửa (giảm lạnh)
+
+    public float coldRate = 2f;
 }

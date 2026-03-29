@@ -16,14 +16,14 @@ public class PillarSpawner : MonoBehaviour
     // Cập nhật Prefab từ MapManager
     public void SetPillarPrefab(GameObject prefab)
     {
+        pillarPrefab = prefab;
         if (prefab != null)
         {
-            pillarPrefab = prefab;
             Debug.Log($"PillarSpawner: Đã thay đổi Pillar Prefab thành công -> {prefab.name}");
         }
         else
         {
-            Debug.LogWarning("PillarSpawner: GameObject Prefab được gán vào bị NULL, vẫn giữ nguyên prefab cũ.");
+            Debug.Log("PillarSpawner: Pillar Prefab được gán vào là NULL. Sẽ không spawn pillar ở map này.");
         }
     }
 
@@ -48,6 +48,8 @@ public class PillarSpawner : MonoBehaviour
 
     void SpawnPillar()
     {
+        if (pillarPrefab == null) return;
+
         GameObject newPillar = Instantiate(pillarPrefab, transform.position, Quaternion.identity);
 
         float randomValue = Random.Range(0f, 100f);

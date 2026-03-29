@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: IceMap
   m_EditorClassIdentifier: Assembly-CSharp::IceMapData
   mapName: IceMap
-  backgroundMusic: {fileID: 8300000, guid: 5bb42920a9125c44faf7a46195b6f240, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 2ce2897944a61b94aa356e6e38a79942, type: 3}
   farBG: {fileID: 2800000, guid: 0dc5cc8831d68c848a3c66de9e69a9c3, type: 3}
   midBG: {fileID: 2800000, guid: 92870121552c97346959be3a951b9f10, type: 3}
   nearBG: {fileID: 0}
   pillarPrefab: {fileID: 5365660443727175284, guid: bf2705ef4dd26e4499c3fabbbbbd184c, type: 3}
-  coldRate: 10
-  mutantSnowflakePrefab: {fileID: 0}
+  snowflakePrefab: {fileID: 7343926208216944723, guid: e26aa1cb4b12cf34aa605e410990c21d, type: 3}
+  mutantSnowflakePrefab: {fileID: 6628367117259122319, guid: afb3e7fc04fdd2d4fab8232b3104decf, type: 3}
+  firePrefab: {fileID: 8086273876043445527, guid: 73f111eabdd94004ea1bb974dda2a436, type: 3}
+  coldRate: 2
