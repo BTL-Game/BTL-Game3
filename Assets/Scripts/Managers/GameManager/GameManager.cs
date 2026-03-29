@@ -44,9 +44,17 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
+            // Kiểm tra liên tục, nếu không có bossPrefab thì tạm ngưng, không đếm thời gian
+            if (bossPrefab == null || !isGameStarted || IsBossPhaseActive)
+            {
+                yield return null;
+                continue;
+            }
+
             yield return new WaitForSeconds(timeBetweenBossPhases);
 
-            if (!isGameStarted || IsBossPhaseActive)
+            // Kiểm tra lại lần nữa sau khi chờ
+            if (!isGameStarted || IsBossPhaseActive || bossPrefab == null)
             {
                 continue;
             }
@@ -80,7 +88,7 @@ public class GameManager : MonoBehaviour
     {
         if (bossPrefab == null)
         {
-            Debug.LogWarning("Boss prefab is missing in GameManager.");
+            Debug.LogWarning("Boss prefab is missing in GameManager, skipping boss phase.");
             CompleteBossPhase();
             return;
         }

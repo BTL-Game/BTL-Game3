@@ -13,6 +13,20 @@ public class PillarSpawner : MonoBehaviour
     public float distanceBetweenPillars = 15f;
     public float minSpawnRate = 0.3f;
 
+    // Cập nhật Prefab từ MapManager
+    public void SetPillarPrefab(GameObject prefab)
+    {
+        if (prefab != null)
+        {
+            pillarPrefab = prefab;
+            Debug.Log($"PillarSpawner: Đã thay đổi Pillar Prefab thành công -> {prefab.name}");
+        }
+        else
+        {
+            Debug.LogWarning("PillarSpawner: GameObject Prefab được gán vào bị NULL, vẫn giữ nguyên prefab cũ.");
+        }
+    }
+
     void Update()
     {
         if (GameManager.Instance == null || !GameManager.Instance.isGameStarted || !canSpawn) return;

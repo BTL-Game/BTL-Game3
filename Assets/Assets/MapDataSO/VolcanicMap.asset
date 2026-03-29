@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf2b885f4881324c8f2415598eab6f1, type: 3}
+  m_Name: VolcanicMap
+  m_EditorClassIdentifier: Assembly-CSharp::VolcanicMapData
+  mapName: VolcanicMap
+  backgroundMusic: {fileID: 8300000, guid: 5bb42920a9125c44faf7a46195b6f240, type: 3}
+  farBG: {fileID: 2800000, guid: 14436aed6bf6db1418327bc537db6697, type: 3}
+  midBG: {fileID: 2800000, guid: c7db814872292ea43bb7d58ec84a2877, type: 3}
+  nearBG: {fileID: 2800000, guid: 6c4918b5d8d73724080eb60fc80d1cfe, type: 3}
+  pillarPrefab: {fileID: 5365660443727175284, guid: bf2705ef4dd26e4499c3fabbbbbd184c, type: 3}
