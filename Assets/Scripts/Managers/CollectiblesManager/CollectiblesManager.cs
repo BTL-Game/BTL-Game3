@@ -18,15 +18,14 @@ public class CollectiblesManager : MonoBehaviour
     {
         if (other.CompareTag("Player") || (other.transform.parent != null && other.transform.parent.CompareTag("Player")))
         {
-            Debug.Log("==> Confirmed collision with PLAYER: " + other.name);
-            
+
             ApplyEffect(other.gameObject);
-            
+
             Destroy(gameObject);
         }
         else 
         {
-            Debug.Log("Collided with non-Player object: " + other.name + " Tag: " + other.tag);
+
         }
     }
 
@@ -37,11 +36,9 @@ public class CollectiblesManager : MonoBehaviour
 
         if (dragon == null)
         {
-            Debug.LogError("!!! Could not find BabyDragonMovement script on Player!");
+
             return;
         }
-
-        Debug.Log("--- Applying effect: " + type.ToString() + " ---");
 
         switch (type)
         {

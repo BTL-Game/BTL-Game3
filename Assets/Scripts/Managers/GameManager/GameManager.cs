@@ -19,8 +19,15 @@ public class GameManager : MonoBehaviour
     public GameObject bossPrefab;
     public Transform bossSpawnPoint;
 
+    [Header("Portal Phase Settings")]
+    public float timeBetweenPortalPhases = 90f;
+    public GameObject portalPrefab;
+    public Transform portalSpawnPoint;
+
     private Coroutine bossLoopCoroutine;
+    private Coroutine portalLoopCoroutine;
     public bool IsBossPhaseActive { get; private set; }
+    public bool IsPortalPhaseActive { get; private set; }
 
     void Awake()
     {
@@ -38,14 +45,19 @@ public class GameManager : MonoBehaviour
         {
             bossLoopCoroutine = StartCoroutine(BossPhaseLoop());
         }
+
+        if (isGameStarted && portalLoopCoroutine == null)
+        {
+            portalLoopCoroutine = StartCoroutine(PortalPhaseLoop());
+        }
     }
 
     IEnumerator BossPhaseLoop()
     {
         while (true)
         {
-            // Kiểm tra liên tục, nếu không có bossPrefab thì tạm ngưng, không đếm thời gian
-            if (bossPrefab == null || !isGameStarted || IsBossPhaseActive)
+
+            if (bossPrefab == null || !isGameStarted || IsBossPhaseActive || IsPortalPhaseActive)
             {
                 yield return null;
                 continue;
@@ -53,8 +65,7 @@ public class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(timeBetweenBossPhases);
 
-            // Kiểm tra lại lần nữa sau khi chờ
-            if (!isGameStarted || IsBossPhaseActive || bossPrefab == null)
+            if (!isGameStarted || IsBossPhaseActive || IsPortalPhaseActive || bossPrefab == null)
             {
                 continue;
             }
@@ -63,17 +74,69 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator PortalPhaseLoop()
+    {
+        while (true)
+        {
+            if (portalPrefab == null || !isGameStarted || IsBossPhaseActive || IsPortalPhaseActive)
+            {
+                yield return null;
+                continue;
+            }
+
+            yield return new WaitForSeconds(timeBetweenPortalPhases);
+
+            if (!isGameStarted || IsBossPhaseActive || IsPortalPhaseActive || portalPrefab == null)
+            {
+                continue;
+            }
+
+            yield return StartCoroutine(RunPortalPhase());
+        }
+    }
+
+    IEnumerator RunPortalPhase()
+    {
+        Debug.Log("[GameManager] Bắt đầu RunPortalPhase! Ẩn các spawners.");
+        IsPortalPhaseActive = true;
+        SetSpawnersActive(false);
+
+        while (Object.FindFirstObjectByType<PillarMovement>() != null)
+        {
+            yield return null;
+        }
+        
+        Debug.Log("[GameManager] Mọi chướng ngại vật đã qua, chuẩn bị spawn Portal.");
+        Vector3 spawnPos = portalSpawnPoint != null ? portalSpawnPoint.position : new Vector3(80f, 0f, 0f);
+        GameObject portalInstance = Instantiate(portalPrefab, spawnPos, Quaternion.identity);
+
+        if (portalInstance.GetComponent<PillarMovement>() == null)
+        {
+            portalInstance.AddComponent<PillarMovement>();
+        }
+
+        while (portalInstance != null)
+        {
+            yield return null;
+        }
+
+        Debug.Log("[GameManager] Portal đã bị hủy/đi qua, kết thúc Portal phase và bật lại spawner.");
+        IsPortalPhaseActive = false;
+        SetSpawnersActive(true);
+    }
+
     IEnumerator RunBossPhase()
     {
+        Debug.Log("[GameManager] Bắt đầu RunBossPhase! Ẩn các spawners.");
         IsBossPhaseActive = true;
-        SetPillarSpawning(false);
+        SetSpawnersActive(false);
 
-        // Wait for all existing pillars to be cleared before spawning the boss.
         while (Object.FindFirstObjectByType<PillarMovement>() != null)
         {
             yield return null;
         }
 
+        Debug.Log("[GameManager] Spawn Boss.");
         SpawnBoss();
 
         while (IsBossPhaseActive)
@@ -81,14 +144,15 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        SetPillarSpawning(true);
+        Debug.Log("[GameManager] Boss bị tiêu diệt, kết thúc Boss phase và bật lại spawner.");
+        SetSpawnersActive(true);
     }
 
     void SpawnBoss()
     {
         if (bossPrefab == null)
         {
-            Debug.LogWarning("Boss prefab is missing in GameManager, skipping boss phase.");
+
             CompleteBossPhase();
             return;
         }
@@ -97,7 +161,7 @@ public class GameManager : MonoBehaviour
         GameObject bossInstance = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
     }
 
-    void SetPillarSpawning(bool canSpawn)
+    void SetSpawnersActive(bool canSpawn)
     {
         if (pillarSpawner == null)
         {
@@ -107,6 +171,12 @@ public class GameManager : MonoBehaviour
         if (pillarSpawner != null)
         {
             pillarSpawner.canSpawn = canSpawn;
+        }
+
+        ItemSpawner itemSpawner = Object.FindFirstObjectByType<ItemSpawner>();
+        if (itemSpawner != null)
+        {
+            itemSpawner.canSpawn = canSpawn;
         }
     }
 
@@ -118,7 +188,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
-        Debug.Log("Score: " + score);
+
     }
 
     public void SpeedUp(float extraSpeed, float duration)
@@ -129,10 +199,10 @@ public class GameManager : MonoBehaviour
     private IEnumerator SpeedUpRoutine(float extraSpeed, float duration)
     {
         gameSpeed += extraSpeed;
-        Debug.Log("Speed increased by " + extraSpeed + "!");
+
         yield return new WaitForSeconds(duration);
         gameSpeed -= extraSpeed;
-        Debug.Log("Speed returned to normal.");
+
     }
 
     public void TriggerGameOver()
@@ -172,7 +242,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ShowGameOverUIRoutine()
     {
-        yield return new WaitForSeconds(3f); // Wait 3 seconds so player can see they died
+        yield return new WaitForSeconds(3f); 
 
         GameOverManager gameOverManager = Object.FindFirstObjectByType<GameOverManager>(FindObjectsInactive.Include);
         if (gameOverManager != null)

@@ -13,12 +13,11 @@ public class BabyDragonMovement : MonoBehaviour
     [Header("Frozen State")]
     public Sprite frozenSprite;
 
-    // Collectible states
     private bool hasShield = false;
     private bool isInvincible = false;
     private bool isGravityReversed = false;
     private bool isFrozen = false;
-    
+
     void Awake()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
@@ -37,8 +36,7 @@ public class BabyDragonMovement : MonoBehaviour
     void OnJump(InputValue value)
     {
         if (isDead || isFrozen) return;
-        
-        // Allow jumping only after the intro sequence is finished.
+
         if (GameManager.Instance != null && !GameManager.Instance.isGameStarted) return;
 
         if (PauseMenuManager.isGamePaused) return;
@@ -57,30 +55,29 @@ public class BabyDragonMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        Debug.Log("Collided with: " + other.gameObject.name);
+
         if (other.CompareTag("Obstacle"))
         {
             if (isInvincible)
             {
-                // Go through everything, destroy the obstacle perhaps, or just ignore it
+
                 return;
             }
 
             if (hasShield)
             {
-                // Endure one collision
-                ShieldObject.SetActive(false); // Hide the shield visual
+
+                ShieldObject.SetActive(false); 
                 hasShield = false;
-                Destroy(other.gameObject); // Destroy the obstacle we hit
-                Debug.Log("Shield destroyed!");
+                Destroy(other.gameObject); 
+
                 return;
             }
 
-            Debug.Log("GAME OVER!");
             Die();
         }
         if (other.CompareTag("Border")){
-            Debug.Log("Hit the border! Game Over!");
+
             Die();
         }
     }
@@ -89,7 +86,7 @@ public class BabyDragonMovement : MonoBehaviour
     {
         isDead = true;
         animator.SetBool("isDead", true);
-        Debug.Log("Baby Dragon has died.");
+
         rigidBody2D.linearVelocity = Vector2.zero;
         rigidBody2D.simulated = false;
 
@@ -103,7 +100,7 @@ public class BabyDragonMovement : MonoBehaviour
     {
         hasShield = true;
         ShieldObject.SetActive(true);
-        Debug.Log("Shield activated!");
+
     }
 
     public void ActivateInvincibility(float duration)
@@ -117,7 +114,6 @@ public class BabyDragonMovement : MonoBehaviour
     private System.Collections.IEnumerator InvincibilityRoutine(float duration)
     {
         isInvincible = true;
-        Debug.Log("Invincibility activated!");
 
         if (spriteRenderer != null)
         {
@@ -127,7 +123,7 @@ public class BabyDragonMovement : MonoBehaviour
         }
 
         yield return new WaitForSeconds(duration);
-        
+
         isInvincible = false;
 
         if (spriteRenderer != null)
@@ -137,7 +133,6 @@ public class BabyDragonMovement : MonoBehaviour
             spriteRenderer.color = c;
         }
 
-        Debug.Log("Invincibility ended!");
     }
 
     private Coroutine gravityRoutine;
@@ -154,7 +149,7 @@ public class BabyDragonMovement : MonoBehaviour
             rigidBody2D.gravityScale *= -1;
             flappingStrength *= -1;
             if (spriteRenderer != null) spriteRenderer.flipY = true;
-            Debug.Log("Gravity Shifted!");
+
         }
 
         gravityRoutine = StartCoroutine(GravityShiftRoutine(duration));
@@ -170,11 +165,11 @@ public class BabyDragonMovement : MonoBehaviour
         if (spriteRenderer != null) spriteRenderer.flipY = false;
 
         gravityRoutine = null;
-        Debug.Log("Gravity Restored!");
+
     }
 
     private Coroutine freezeRoutine;
-    private float preFreezeGravity = 3f; // Giá trị mặc định an toàn
+    private float preFreezeGravity = 3f; 
 
     public void FreezeDragon(float duration)
     {
@@ -198,26 +193,22 @@ public class BabyDragonMovement : MonoBehaviour
             preFreezeGravity = rigidBody2D.gravityScale;
         }
         rigidBody2D.gravityScale = 0f;
-        
-        // Tắt animator để có thể đè sprite tĩnh lên
+
         animator.enabled = false; 
         if (spriteRenderer != null && frozenSprite != null)
         {
             spriteRenderer.sprite = frozenSprite;
         }
-        
-        Debug.Log($"Dragon is completely frozen for {duration} seconds!");
 
         yield return new WaitForSeconds(duration);
 
         isFrozen = false;
         rigidBody2D.gravityScale = preFreezeGravity;
-        
-        // Bật lại animator để tiếp tục chạy animation bình thường
+
         animator.enabled = true; 
         animator.speed = 1f;
 
         freezeRoutine = null;
-        Debug.Log("Dragon is unfrozen!");
+
     }
 }

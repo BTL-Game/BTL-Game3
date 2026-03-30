@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 public class MusicManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     public static MusicManager instance;
     public AudioSource musicSource;
 
@@ -17,7 +17,7 @@ public class MusicManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
             originalVolume = musicSource.volume;
-            
+
         }
         else
         {
@@ -28,7 +28,7 @@ public class MusicManager : MonoBehaviour
     public void ChangeMusicWithFade(AudioClip newMusic)
     {
         if (musicSource.clip == newMusic) return;
-        
+
         StartCoroutine(FadeTrack(newMusic));
     }
     private IEnumerator FadeTrack(AudioClip newMusic)
@@ -53,7 +53,7 @@ public class MusicManager : MonoBehaviour
             musicSource.volume = Mathf.Lerp(0, originalVolume, timer / fadeDuration);
             yield return null;
         }
-        
+
         musicSource.volume = originalVolume;
     }
 }

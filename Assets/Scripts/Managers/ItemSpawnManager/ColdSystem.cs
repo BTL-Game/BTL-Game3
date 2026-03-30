@@ -9,7 +9,7 @@ public class ColdSystem : MonoBehaviour
     public float currentCold = 0f;
     public float maxCold = 100f;
     public float coldRate = 2f; 
-    
+
     [Header("UI Reference")]
     public GameObject coldSliderObject;
     public Slider coldSlider;
@@ -76,10 +76,10 @@ public class ColdSystem : MonoBehaviour
 
     public void FreezePlayer()
     {
-        Debug.Log("ColdSystem: Player is frozen!");
+
         if (GameManager.Instance != null && GameManager.Instance.isGameStarted)
         {
-            // Tùy vào Game manager của bạn, có thể gọi PlayerDie() hoặc tương tự.
+
             GameManager.Instance.TriggerGameOver(); 
         }
     }
@@ -94,12 +94,9 @@ public class ColdSystem : MonoBehaviour
     {
         if (coldSlider != null)
         {
-            // Thiết lập giá trị Slider theo tỷ lệ phần trăm
+
             coldSlider.value = currentCold / maxCold; 
-            
-            // Hoặc nếu setup Slider maxValue trong Inspector bằng maxCold:
-            // coldSlider.maxValue = maxCold;
-            // coldSlider.value = currentCold;
+
         }
     }
 }

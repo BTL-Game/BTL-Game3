@@ -20,9 +20,9 @@ public class SoundToggle : MonoBehaviour
     public void ToggleMute()
     {
         isMuted = !isMuted;
-        
+
         PlayerPrefs.SetInt("Muted", isMuted ? 1 : 0);
-        
+
         UpdateUI();
         ApplyAudioSettings();
     }

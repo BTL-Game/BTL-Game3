@@ -13,17 +13,16 @@ public class PillarSpawner : MonoBehaviour
     public float distanceBetweenPillars = 15f;
     public float minSpawnRate = 0.3f;
 
-    // Cập nhật Prefab từ MapManager
     public void SetPillarPrefab(GameObject prefab)
     {
         pillarPrefab = prefab;
         if (prefab != null)
         {
-            Debug.Log($"PillarSpawner: Đã thay đổi Pillar Prefab thành công -> {prefab.name}");
+
         }
         else
         {
-            Debug.Log("PillarSpawner: Pillar Prefab được gán vào là NULL. Sẽ không spawn pillar ở map này.");
+
         }
     }
 
@@ -57,11 +56,11 @@ public class PillarSpawner : MonoBehaviour
         if (randomValue <= mutantChance)
         {
             MutantPillar mutantScript = newPillar.GetComponent<MutantPillar>();
-            
+
             if (mutantScript != null)
             {
                 mutantScript.enabled = true;
-                Debug.Log("Mutant pillar spawned!");
+
             }
         }
     }

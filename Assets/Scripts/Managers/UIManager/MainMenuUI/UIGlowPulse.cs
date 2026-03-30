@@ -14,7 +14,7 @@ public class UIGlowPulse : MonoBehaviour
     {
         float wave = (Mathf.Sin(Time.time * pulseSpeed) + 1f) / 2f;
         transform.localScale = Vector3.one * Mathf.Lerp(minScale, maxScale, wave);
-        
+
         if (img != null) {
             Color c = img.color;
             c.a = Mathf.Lerp(0.2f, 0.6f, wave);

@@ -12,12 +12,12 @@ public class MapManager : MonoBehaviour
     public ParallaxBackground farBackground;
     public ParallaxBackground midBackground;
     public ParallaxBackground nearBackground;
-    
+
     [Tooltip("Gắn Main Pillar Spawner")]
     public PillarSpawner pillarSpawner;
     [Tooltip("Gắn Item Spawner (chỉ dùng cho map có item như Ice Map)")]
     public ItemSpawner itemSpawner;
-    
+
     [Tooltip("Gắn AudioSource chứa nhạc nền của game")]
     public AudioSource musicSource;
 
@@ -35,94 +35,95 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("MapManager: Bắt đầu Start() trên MapManager.");
+        Debug.Log("[MapManager] Khởi tạo Game, Load Map hiện tại nếu có.");
         if (currentMap != null)
         {
             ApplyMap(currentMap);
         }
         else
         {
-            Debug.LogWarning("MapManager: Ô 'Current Map' trong Inspector chưa được gắn MapData!");
+            Debug.LogWarning("[MapManager] Chưa có Map mặc định, hãy set currentMap trên inspector!");
         }
     }
 
-    // Hàm public được gọi để load toàn bộ dữ liệu của Map
     public void ApplyMap(BaseMapData data)
     {
         if (data == null) {
-            Debug.LogError("MapManager: Data truyền vào hàm ApplyMap bị NULL!");
+            Debug.LogWarning("[MapManager] ApplyMap được gọi nhưng map data bị NULL!");
             return;
         }
+        
+        Debug.Log($"[MapManager] Đang áp dụng map mới: {data.mapName ?? data.name}. Boss phase type: {data.GetType().Name}");
         currentMap = data;
-        Debug.Log($"MapManager: Đang bắt đầu Apply Map: {data.mapName} (Tên asset: {data.name})");
 
-        // 1. Áp dụng âm thanh
-        if (musicSource != null)
+        if (data.backgroundMusic != null)
         {
-            if (data.backgroundMusic != null)
+            if (MusicManager.instance != null)
+            {
+                if (musicSource != null) musicSource.Stop();
+                MusicManager.instance.ChangeMusicWithFade(data.backgroundMusic);
+                Debug.Log($"[MapManager] Đổi nhạc nền qua MusicManager: {data.backgroundMusic.name}");
+            }
+            else if (musicSource != null)
             {
                 musicSource.clip = data.backgroundMusic;
                 musicSource.Play();
-                Debug.Log($"MapManager: Đã phát background music -> {data.backgroundMusic.name}");
-            }
-            else
-            {
-                Debug.LogWarning("MapManager: File MapData hiện tại chưa có nhạc (backgroundMusic bị trống).");
+                Debug.Log($"[MapManager] Đổi nhạc nền trực tiếp tại musicSource: {data.backgroundMusic.name}");
             }
         }
         else
         {
-            Debug.LogError("MapManager: Chưa gắn 'Music Source' vào Inspector của MapManager!");
+            Debug.Log("[MapManager] Map này không có nhạc nền.");
         }
-        
-        // 2. Chuyển đổi Background Textures
-        if (farBackground != null) farBackground.ChangeTexture(data.farBG);
-        else Debug.LogError("MapManager: Chưa gắn 'Far Background' vào Inspector của MapManager!");
 
-        if (midBackground != null) midBackground.ChangeTexture(data.midBG);
-        else Debug.LogError("MapManager: Chưa gắn 'Mid Background' vào Inspector của MapManager!");
+        Debug.Log($"[MapManager] Cập nhật hình nền Parallax:");
+        if (farBackground != null) {
+            farBackground.ChangeTexture(data.farBG);
+            Debug.Log($"[MapManager] - FarBG: {(data.farBG != null ? data.farBG.name : "NULL")}");
+        } 
 
-        if (nearBackground != null) nearBackground.ChangeTexture(data.nearBG);
-        else Debug.LogError("MapManager: Chưa gắn 'Near Background' vào Inspector của MapManager!");
+        if (midBackground != null) {
+            midBackground.ChangeTexture(data.midBG);
+            Debug.Log($"[MapManager] - MidBG: {(data.midBG != null ? data.midBG.name : "NULL")}");
+        }
 
-        Debug.Log("MapManager: Đã gửi lệnh đổi Texture cho các Parallax Backgrounds.");
+        if (nearBackground != null) {
+            nearBackground.ChangeTexture(data.nearBG);
+            Debug.Log($"[MapManager] - NearBG: {(data.nearBG != null ? data.nearBG.name : "NULL")}");
+        }
 
-        // 3. Đổi loại cột (Pillar)
         if (pillarSpawner != null)
         {
             pillarSpawner.SetPillarPrefab(data.pillarPrefab);
             if (data.pillarPrefab != null)
             {
-                Debug.Log($"MapManager: Đã truyền Pillar Prefab ({data.pillarPrefab.name}) cho PillarSpawner.");
+
             }
             else
             {
-                Debug.Log("MapManager: File MapData hiện tại chưa có Pillar Prefab, tắt tính năng spawn cột.");
+
             }
         }
         else
         {
-            Debug.LogError("MapManager: Chưa gắn 'Pillar Spawner' vào Inspector của MapManager!");
+
         }
 
-        // 4. Các yếu tố đặc thù (VD: IceMapData, VolcanicMapData)
         if (data is IceMapData iceData)
         {
-            Debug.Log($"Applied Ice Map! Cold Rate is now: {iceData.coldRate}");
+            Debug.Log("[MapManager] Áp dụng cài đặt cho ICE MAP (Spawner Items thay vì Pillars).");
             if (pillarSpawner != null) pillarSpawner.gameObject.SetActive(false);
             if (itemSpawner != null) itemSpawner.gameObject.SetActive(true);
-            
-            // Bật hệ thống lạnh (ColdSystem)
+
             if (ColdSystem.Instance != null)
             {
                 ColdSystem.Instance.SetActive(true, iceData.coldRate);
             }
 
-            // Reset Boss về null khi ở map băng
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.bossPrefab = null;
-                Debug.Log("Đã tắt Boss vì đây là Ice Map.");
+                Debug.Log("[MapManager] Xóa Boss prefab vì Ice Map không có boss.");
             }
             itemSpawner.snowflakePrefab = iceData.snowflakePrefab;
             itemSpawner.mutantSnowflakePrefab = iceData.mutantSnowflakePrefab;
@@ -130,10 +131,10 @@ public class MapManager : MonoBehaviour
         }
         else if (data is VolcanicMapData volData)
         {
+            Debug.Log("[MapManager] Áp dụng cài đặt cho VOLCANIC MAP (Kích hoạt Pillars, chuẩn bị Boss).");
             if (pillarSpawner != null) pillarSpawner.gameObject.SetActive(true);
             if (itemSpawner != null) itemSpawner.gameObject.SetActive(false);
-            
-            // Tắt hệ thống lạnh (ColdSystem)
+
             if (ColdSystem.Instance != null)
             {
                 ColdSystem.Instance.SetActive(false);
@@ -143,21 +144,24 @@ public class MapManager : MonoBehaviour
             {
                 GameManager.Instance.bossPrefab = volData.mapBossPrefab;
                 GameManager.Instance.timeBetweenBossPhases = volData.timeBetweenBossPhases;
-                Debug.Log($"Đã kích hoạt Boss cho Volcanic Map: {volData.mapBossPrefab.name}");
+                Debug.Log($"[MapManager] Cập nhật Boss prefab: {volData.mapBossPrefab.name}");
+            }
+            else if (GameManager.Instance != null)
+            {
+                GameManager.Instance.bossPrefab = null;
             }
         }
         else
         {
+            Debug.Log("[MapManager] Áp dụng cài đặt cho DEFAULT MAP (Chỉ có Pillars).");
             if (pillarSpawner != null) pillarSpawner.gameObject.SetActive(true);
             if (itemSpawner != null) itemSpawner.gameObject.SetActive(false);
 
-            // Tắt hệ thống lạnh (ColdSystem)
             if (ColdSystem.Instance != null)
             {
                 ColdSystem.Instance.SetActive(false);
             }
 
-            // Các map thường khác cũng không có Boss
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.bossPrefab = null;

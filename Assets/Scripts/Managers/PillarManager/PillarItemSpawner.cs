@@ -9,7 +9,6 @@ public class PillarItemSpawner : MonoBehaviour
 
     public List<CollectibleData> lootTable;
 
-
     void Start()
     {
         TrySpawnItem();

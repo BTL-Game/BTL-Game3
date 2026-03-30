@@ -10,7 +10,7 @@ public class IceItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Kiểm tra xem có va chạm trúng Player không
+
         if (other.CompareTag("Player") || (other.transform.parent != null && other.transform.parent.CompareTag("Player")))
         {
             if (ColdSystem.Instance == null) return;
@@ -19,15 +19,15 @@ public class IceItem : MonoBehaviour
             {
                 case Type.Flame:
                     ColdSystem.Instance.DecreaseCold(effectAmount);
-                    Debug.Log($"Đã nhặt Lửa! Giảm {effectAmount} độ lạnh.");
+
                     break;
                 case Type.Snowflake:
                     ColdSystem.Instance.IncreaseCold(effectAmount);
-                    Debug.Log($"Đã nhặt Tuyết! Tăng {effectAmount} độ lạnh.");
+
                     break;
                 case Type.MutantSnowflake:
                     ColdSystem.Instance.FreezePlayer();
-                    Debug.Log("Đã nhặt phải Tuyết Đột Biến! Đóng băng ngay lập tức.");
+
                     break;
             }
 

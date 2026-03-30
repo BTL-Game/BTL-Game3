@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     public static bool isGamePaused = false;
     public GameObject PausedMenuUI;
     public AudioClip mainMenuMusic;
@@ -34,7 +34,7 @@ public class PauseMenuManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         isGamePaused = true;
-        // Show pause menu UI here
+
         PausedMenuUI.SetActive(true);
     }
 

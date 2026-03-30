@@ -23,32 +23,26 @@ public class ParallaxBackground : MonoBehaviour
         meshRenderer.material.mainTextureOffset = new Vector2(currentOffset, 0);
     }
 
-    // Hàm nhận và đổi Texture từ MapData
     public void ChangeTexture(Texture2D newTex)
     {
         if (meshRenderer == null)
         {
             meshRenderer = GetComponent<MeshRenderer>();
-            Debug.Log($"ParallaxBackground ({gameObject.name}): Đã tự động gọi lại GetComponent<MeshRenderer>() vì bị miss.");
         }
-            
+
         if (meshRenderer != null)
         {
             if (newTex != null)
             {
-                meshRenderer.enabled = true; // Bật lại hiển thị nếu layer này từng bị tắt trước đó
+                meshRenderer.enabled = true; 
                 meshRenderer.material.mainTexture = newTex;
-                Debug.Log($"ParallaxBackground ({gameObject.name}): Đã cập nhật thành công texture mới -> {newTex.name}");
+                Debug.Log($"[ParallaxBackground] Thay đổi texture thành: {newTex.name} trên {gameObject.name}");
             }
             else
             {
-                meshRenderer.enabled = false; // Ẩn luôn background này đi nếu Map mới không có ảnh
-                Debug.Log($"ParallaxBackground ({gameObject.name}): Không có Texture, đã TẮT layer này.");
+                meshRenderer.enabled = false; 
+                Debug.Log($"[ParallaxBackground] Tắt render vì texture null trên {gameObject.name}");
             }
-        }
-        else
-        {
-            Debug.LogError($"ParallaxBackground ({gameObject.name}): KHÔNG tìm thấy thành phần MeshRenderer nào trên GameObject này!");
         }
     }
 }
