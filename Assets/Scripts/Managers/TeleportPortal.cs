@@ -41,6 +41,24 @@ public class TeleportPortal : MonoBehaviour
     private IEnumerator TeleportRoutine(GameObject playerObj)
     {
         isTeleporting = true;
+        
+        // Tắt di chuyển và trọng lực của người chơi để đứng yên lơ lửng khi chuyển cảnh
+        Rigidbody2D playerRb = null;
+        MonoBehaviour playerMovement = null;
+
+        if (playerObj != null)
+        {
+            playerRb = playerObj.GetComponent<Rigidbody2D>();
+            if (playerRb != null) 
+            {
+                playerRb.linearVelocity = Vector2.zero; // Dừng hẳn gia tốc hiện tại
+                playerRb.gravityScale = 0f;       // Tắt trọng lực
+            }
+
+            // Tắt script điều khiển (bay nhảy) của con rồng
+            playerMovement = playerObj.GetComponent("BabyDragonMovement") as MonoBehaviour;
+            if (playerMovement != null) playerMovement.enabled = false;
+        }
 
         GameObject canvasGo = new GameObject("FadeCanvas");
         Canvas canvas = canvasGo.AddComponent<Canvas>();

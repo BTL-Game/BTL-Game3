@@ -9,11 +9,11 @@ public class ItemSpawner : MonoBehaviour
 
     [Header("Spawn Settings")]
     public float yOffset = 40f;
-    public float distanceBetweenItems = 15f;
-    public float minSpawnRate = 0.5f;
+    public float distanceBetweenItems = 10f;
+    public float minSpawnRate = 0.2f;
 
     [Header("Spawn Chances (%)")]
-    [Range(0f, 100f)] public float flameChance = 20f;
+    [Range(0f, 100f)] public float flameChance = 30f;
     [Range(0f, 100f)] public float mutantSnowflakeChance = 10f;
 
     private float timer = 0f;

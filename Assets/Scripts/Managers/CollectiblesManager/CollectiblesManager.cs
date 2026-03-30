@@ -63,6 +63,9 @@ public class CollectiblesManager : MonoBehaviour
                 break;
             case ItemType.Flame:
                 if (ColdSystem.Instance != null) ColdSystem.Instance.DecreaseCold(30f);
+                if (GameManager.Instance != null) {
+                    GameManager.Instance.AddScore(30);
+                }
                 break;
             case ItemType.Snowflake:
                 if (ColdSystem.Instance != null) ColdSystem.Instance.IncreaseCold(20f);

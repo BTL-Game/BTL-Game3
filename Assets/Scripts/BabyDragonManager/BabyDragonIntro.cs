@@ -21,10 +21,18 @@ public class PlayerIntro : MonoBehaviour
         transform.position = targetPosition - new Vector3(startOffset, 0, 0);
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null) rb.simulated = false;
+        if (rb != null) 
+        {
+            rb.simulated = false; // Tắt mô phỏng vật lý lúc đang Intro
+            rb.linearVelocity = Vector2.zero; // Xóa gia tốc tụt dư thừa nếu có
+        }
 
-        MonoBehaviour moveScript = GetComponent<BabyDragonMovement>(); 
-        if (moveScript != null) moveScript.enabled = false;
+        BabyDragonMovement moveScript = GetComponent<BabyDragonMovement>(); 
+        if (moveScript != null) 
+        {
+            moveScript.enabled = false;
+            moveScript.RemoveAllEffects(); // Xóa sạch mọi hiệu ứng cũ (khiên, tàng hình, đảo trọng lực)
+        }
 
         if (anim != null)
         {
@@ -57,7 +65,11 @@ public class PlayerIntro : MonoBehaviour
         transform.position = targetPosition; 
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null) rb.simulated = true;
+        if (rb != null) 
+        {
+            rb.simulated = true;
+            rb.gravityScale = 4f;
+        }
 
         MonoBehaviour moveScript = GetComponent<BabyDragonMovement>();
         if (moveScript != null) moveScript.enabled = true;

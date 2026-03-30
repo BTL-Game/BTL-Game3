@@ -82,8 +82,10 @@ public class BabyDragonMovement : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
+        if (isDead) return; // Tránh gọi Die nhiều lần
+        
         isDead = true;
         animator.SetBool("isDead", true);
 
@@ -149,7 +151,6 @@ public class BabyDragonMovement : MonoBehaviour
             rigidBody2D.gravityScale *= -1;
             flappingStrength *= -1;
             if (spriteRenderer != null) spriteRenderer.flipY = true;
-
         }
 
         gravityRoutine = StartCoroutine(GravityShiftRoutine(duration));
@@ -159,13 +160,14 @@ public class BabyDragonMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
 
-        isGravityReversed = false;
-        rigidBody2D.gravityScale = Mathf.Abs(rigidBody2D.gravityScale);
-        flappingStrength = Mathf.Abs(flappingStrength);
-        if (spriteRenderer != null) spriteRenderer.flipY = false;
-
+        if (isGravityReversed) 
+        {
+            isGravityReversed = false;
+            rigidBody2D.gravityScale = Mathf.Abs(rigidBody2D.gravityScale);
+            flappingStrength = Mathf.Abs(flappingStrength);
+            if (spriteRenderer != null) spriteRenderer.flipY = false;
+        }
         gravityRoutine = null;
-
     }
 
     private Coroutine freezeRoutine;
@@ -209,6 +211,49 @@ public class BabyDragonMovement : MonoBehaviour
         animator.speed = 1f;
 
         freezeRoutine = null;
+    }
 
+    public void RemoveAllEffects()
+    {
+        Debug.Log("[BabyDragonMovement] Khởi tạo lại rồng, xóa toàn bộ hiệu ứng!");
+
+        // Dừng tất cả Coroutines liên quan đến hiệu ứng nếu có đang chạy
+        StopAllCoroutines();
+        gravityRoutine = null;
+        freezeRoutine = null;
+
+        // 1. Tắt khiên
+        hasShield = false;
+        if (ShieldObject != null)
+        {
+            ShieldObject.SetActive(false);
+        }
+
+        // 2. Tắt tàng hình
+        isInvincible = false;
+        if (spriteRenderer != null)
+        {
+            Color c = spriteRenderer.color;
+            c.a = 1f;
+            spriteRenderer.color = c;
+        }
+
+        // 3. Tắt đảo trọng lực
+        if (isGravityReversed)
+        {
+            isGravityReversed = false;
+            rigidBody2D.gravityScale = Mathf.Abs(rigidBody2D.gravityScale);
+            flappingStrength = Mathf.Abs(flappingStrength);
+            if (spriteRenderer != null) spriteRenderer.flipY = false;
+        }
+
+        // 4. Giải đóng băng
+        if (isFrozen)
+        {
+            isFrozen = false;
+            rigidBody2D.gravityScale = preFreezeGravity != 0 ? preFreezeGravity : 3f;
+            animator.enabled = true;
+            animator.speed = 1f;
+        }
     }
 }
