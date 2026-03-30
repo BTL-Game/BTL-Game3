@@ -7,14 +7,14 @@ public class GameManager : MonoBehaviour
     public bool isGameStarted = false;
     [Header("Difficulty Settings")]
     public float gameSpeed = 5f;
-    public float maxGameSpeed = 20f;
+    public float maxGameSpeed = 15f;
     public float speedMultiplier = 0.2f;
 
     [Header("Score Settings")]
     public int score = 0;
 
     [Header("Boss Phase Settings")]
-    public float timeBetweenBossPhases = 30f;
+    public float timeBetweenBossPhases = 60f;
     public PillarSpawner pillarSpawner;
     public GameObject bossPrefab;
     public Transform bossSpawnPoint;
@@ -24,14 +24,23 @@ public class GameManager : MonoBehaviour
     public GameObject portalPrefab;
     public Transform portalSpawnPoint;
 
-    private Coroutine bossLoopCoroutine;
-    private Coroutine portalLoopCoroutine;
+    private float currentBossTimer = 0f;
+    private float currentPortalTimer = 0f;
     public bool IsBossPhaseActive { get; private set; }
     public bool IsPortalPhaseActive { get; private set; }
+    
+    private float initialGameSpeed;
 
     void Awake()
     {
         Instance = this;
+        initialGameSpeed = gameSpeed;
+    }
+
+    public void ResetGameSpeed()
+    {
+        gameSpeed = initialGameSpeed;
+        Debug.Log("[GameManager] Tốc độ game đã được reset về: " + gameSpeed);
     }
 
     void Update()
@@ -41,57 +50,26 @@ public class GameManager : MonoBehaviour
             gameSpeed += speedMultiplier * Time.deltaTime;
         }
 
-        if (isGameStarted && bossLoopCoroutine == null)
+        if (isGameStarted && !IsBossPhaseActive && !IsPortalPhaseActive)
         {
-            bossLoopCoroutine = StartCoroutine(BossPhaseLoop());
-        }
+            // Tăng timer nếu đang ở trạng thái bình thường
+            if (bossPrefab != null) currentBossTimer += Time.deltaTime;
+            if (portalPrefab != null) currentPortalTimer += Time.deltaTime;
 
-        if (isGameStarted && portalLoopCoroutine == null)
-        {
-            portalLoopCoroutine = StartCoroutine(PortalPhaseLoop());
-        }
-    }
-
-    IEnumerator BossPhaseLoop()
-    {
-        while (true)
-        {
-
-            if (bossPrefab == null || !isGameStarted || IsBossPhaseActive || IsPortalPhaseActive)
+            // Kiểm tra Boss Phase trước
+            if (currentBossTimer >= timeBetweenBossPhases && bossPrefab != null)
             {
-                yield return null;
-                continue;
+                currentBossTimer = 0f;
+                // Sang Boss Phase: Timer của Portal sẽ dừng đếm do IsBossPhaseActive = true
+                StartCoroutine(RunBossPhase());
             }
-
-            yield return new WaitForSeconds(timeBetweenBossPhases);
-
-            if (!isGameStarted || IsBossPhaseActive || IsPortalPhaseActive || bossPrefab == null)
+            // Nếu chưa gọi Boss thì kiểm tra Portal Phase
+            else if (currentPortalTimer >= timeBetweenPortalPhases && portalPrefab != null)
             {
-                continue;
+                currentPortalTimer = 0f;
+                // Sang Portal Phase: Timer của Boss sẽ dừng đếm do IsPortalPhaseActive = true
+                StartCoroutine(RunPortalPhase());
             }
-
-            yield return StartCoroutine(RunBossPhase());
-        }
-    }
-
-    IEnumerator PortalPhaseLoop()
-    {
-        while (true)
-        {
-            if (portalPrefab == null || !isGameStarted || IsBossPhaseActive || IsPortalPhaseActive)
-            {
-                yield return null;
-                continue;
-            }
-
-            yield return new WaitForSeconds(timeBetweenPortalPhases);
-
-            if (!isGameStarted || IsBossPhaseActive || IsPortalPhaseActive || portalPrefab == null)
-            {
-                continue;
-            }
-
-            yield return StartCoroutine(RunPortalPhase());
         }
     }
 
@@ -130,6 +108,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("[GameManager] Bắt đầu RunBossPhase! Ẩn các spawners.");
         IsBossPhaseActive = true;
         SetSpawnersActive(false);
+
+        // Kích hoạt rung lắc màn hình và phát âm thanh cảnh báo
+        if (BossCameraShake.Instance != null)
+        {
+            BossCameraShake.Instance.TriggerBossWarning();
+        }
 
         while (Object.FindFirstObjectByType<PillarMovement>() != null)
         {

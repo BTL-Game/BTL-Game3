@@ -13,9 +13,9 @@ public class PlayerIntro : MonoBehaviour
     private Animator anim;
     private bool isIntroFinished = false;
 
-    void Start()
+    public void StartIntro()
     {
-
+        isIntroFinished = false;
         anim = GetComponent<Animator>();
 
         transform.position = targetPosition - new Vector3(startOffset, 0, 0);
@@ -30,6 +30,11 @@ public class PlayerIntro : MonoBehaviour
         {
             anim.Play(animationToPlay);
         }
+    }
+
+    void Start()
+    {
+        StartIntro();
     }
 
     void Update()
@@ -68,6 +73,6 @@ public class PlayerIntro : MonoBehaviour
             GameManager.Instance.isGameStarted = true;
         }
 
-        Destroy(this);
+        this.enabled = false; // Thay vì Destroy, ta chỉ vô hiệu hóa để có thể dùng lại khi chuyển map
     }
 }

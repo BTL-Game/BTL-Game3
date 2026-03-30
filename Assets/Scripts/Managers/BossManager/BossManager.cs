@@ -17,7 +17,7 @@ public class BossManager : MonoBehaviour
     [Header("Attack Settings")]
     public Animator anim;
     public int totalAttacks = 3; 
-    public float timeBetweenAttacks = 15f; 
+    public float timeBetweenAttacks = 10f; 
     public float minAttackY = -20f;
     public float maxAttackY = 20f;
     public float minYDistanceBetweenAttacks = 5f;

@@ -7,7 +7,7 @@ public class TeleportPortal : MonoBehaviour
     [Header("Teleport Settings")]
     [Tooltip("The map data to apply when the player enters this portal. One will be chosen randomly if there are multiple.")]
     public BaseMapData[] targetMaps;
-    public float fadeDuration = 1f;
+    public float fadeDuration = 3f;
 
     private bool isTeleporting = false;
 
@@ -34,11 +34,11 @@ public class TeleportPortal : MonoBehaviour
             MonoBehaviour movement = GetComponent("PillarMovement") as MonoBehaviour;
             if (movement != null) movement.enabled = false;
 
-            StartCoroutine(TeleportRoutine());
+            StartCoroutine(TeleportRoutine(collision.gameObject));
         }
     }
 
-    private IEnumerator TeleportRoutine()
+    private IEnumerator TeleportRoutine(GameObject playerObj)
     {
         isTeleporting = true;
 
@@ -86,6 +86,22 @@ public class TeleportPortal : MonoBehaviour
 
             Debug.Log($"[TeleportPortal] Áp dụng map mới: {selectedMap.name}");
             MapManager.Instance.ApplyMap(selectedMap);
+        }
+
+        // Kích hoạt lại đoạn Intro của rồng và reset tốc độ game
+        if (playerObj != null)
+        {
+            PlayerIntro intro = playerObj.GetComponent<PlayerIntro>();
+            if (intro != null)
+            {
+                intro.enabled = true;
+                intro.StartIntro();
+            }
+        }
+        
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetGameSpeed();
         }
 
         yield return new WaitForSeconds(0.1f);

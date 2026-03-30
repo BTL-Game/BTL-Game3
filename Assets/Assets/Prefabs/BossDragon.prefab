@@ -85,8 +85,8 @@ MonoBehaviour:
   idleYHigh: 18
   idleYLow: -18
   anim: {fileID: 549354374202760665}
-  totalAttacks: 3
-  timeBetweenAttacks: 15
+  totalAttacks: 1
+  timeBetweenAttacks: 10
   minAttackY: -20
   maxAttackY: 20
   minYDistanceBetweenAttacks: 5

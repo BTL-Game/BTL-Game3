@@ -611,8 +611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PillarSpawner
   pillarPrefab: {fileID: 5365660443727175284, guid: bf2705ef4dd26e4499c3fabbbbbd184c, type: 3}
   mutantChance: 5
-  minLength: 5
-  maxLength: 15
+  minLength: -10
+  maxLength: 10
   canSpawn: 1
   distanceBetweenPillars: 15
   minSpawnRate: 0.3
@@ -965,9 +965,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.5
-  m_LinearDamping: 0.5
+  m_LinearDamping: 0.05
   m_AngularDamping: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -975,7 +975,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
@@ -1065,6 +1065,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1146,6 +1147,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd4589dedcad0ea419007b9bb367bb88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossCameraShake
+  shakeDuration: 4
+  shakeMagnitude: 2
+  dampingSpeed: 2
+  bossWarningClip: {fileID: 8300000, guid: 478da20be22aed24cb120fc496f50338, type: 3}
+  audioSource: {fileID: 0}
 --- !u!1 &587893892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,7 +2265,7 @@ MonoBehaviour:
   maxGameSpeed: 20
   speedMultiplier: 0.2
   score: 0
-  timeBetweenBossPhases: 30
+  timeBetweenBossPhases: 60
   pillarSpawner: {fileID: 345873362}
   bossPrefab: {fileID: 0}
   bossSpawnPoint: {fileID: 144649243}
@@ -3482,7 +3500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc3f78a63160934c9a8496548a231e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
-  currentMap: {fileID: 11400000, guid: d50a6b69276688e4888ea22cac60b447, type: 2}
+  currentMap: {fileID: 11400000, guid: 8ee11373b6adf5247b761e961d119972, type: 2}
   farBackground: {fileID: 1565110106}
   midBackground: {fileID: 1632266363}
   nearBackground: {fileID: 1233286713}

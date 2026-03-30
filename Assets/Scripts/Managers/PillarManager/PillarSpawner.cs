@@ -6,8 +6,8 @@ public class PillarSpawner : MonoBehaviour
     [Header("Spawn Chance (%)")]
     [Range(0f, 100f)] 
     public float mutantChance = 5f;
-    public float minLength = 5f;
-    public float maxLength = 15f;
+    public float minLength = -10f;
+    public float maxLength = 10f;
     private float timer = 0f;
     public bool canSpawn = true;
     public float distanceBetweenPillars = 15f;
@@ -49,7 +49,39 @@ public class PillarSpawner : MonoBehaviour
     {
         if (pillarPrefab == null) return;
 
+        // Bỏ việc cộng Y vào object cha, sinh ra ngay tại mốc Spawner
         GameObject newPillar = Instantiate(pillarPrefab, transform.position, Quaternion.identity);
+
+        // Áp dụng random offset cho con
+        float randomYOffset = Random.Range(minLength, maxLength);
+
+        // Tìm các object con (bạn lưu ý viết đúng tên GameObject trên Inspector nhé)
+        Transform topPillar = newPillar.transform.Find("PillarTop");
+        Transform bottomPillar = newPillar.transform.Find("PillarBottom");
+        Transform itemSpawnLocation = newPillar.transform.Find("ItemPoint");
+
+        // Di chuyển localPosition của 2 cột vả cục spawn item lên/xuống đồng bộ
+        if (topPillar != null)
+        {
+            topPillar.localPosition += new Vector3(0, randomYOffset, 0);
+        }
+        
+        if (bottomPillar != null)
+        {
+            bottomPillar.localPosition += new Vector3(0, randomYOffset, 0);
+        }
+
+        if (itemSpawnLocation != null)
+        {
+            itemSpawnLocation.localPosition += new Vector3(0, randomYOffset, 0);
+        }
+
+        // Nếu tình cờ gõ sai tên object con và nó không tìm thấy, hệ thống sẽ tự fallback đẩy cả cụm cha lên như cũ
+        if (topPillar == null && bottomPillar == null)
+        {
+            newPillar.transform.position += new Vector3(0, randomYOffset, 0);
+            Debug.LogWarning("[PillarSpawner] Không tìm thấy DragonPillarTop và DragonPillarBottom, đang đẩy cả cụm cha.");
+        }
 
         float randomValue = Random.Range(0f, 100f);
 

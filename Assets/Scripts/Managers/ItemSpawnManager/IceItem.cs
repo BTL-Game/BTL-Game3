@@ -19,7 +19,10 @@ public class IceItem : MonoBehaviour
             {
                 case Type.Flame:
                     ColdSystem.Instance.DecreaseCold(effectAmount);
-
+                    if (GameManager.Instance != null)
+                    {
+                        GameManager.Instance.AddScore(30);
+                    }
                     break;
                 case Type.Snowflake:
                     ColdSystem.Instance.IncreaseCold(effectAmount);
