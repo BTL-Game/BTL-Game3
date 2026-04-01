@@ -57,7 +57,7 @@ public class WallController : MonoBehaviour
 public class WallMovement : MonoBehaviour
 {
     public float speedMultiplier = 4f;
-    public float deadZone = -80f;
+    public float deadZone = -90f;
     public bool canMove = true;
 
     void Update()

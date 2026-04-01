@@ -6,4 +6,9 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("StoryScene");
     }
+
+    public void QuitButton()
+    {
+        Application.Quit();
+    }
 }

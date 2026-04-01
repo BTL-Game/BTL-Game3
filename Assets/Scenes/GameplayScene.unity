@@ -2709,11 +2709,11 @@ MonoBehaviour:
   maxGameSpeed: 20
   speedMultiplier: 0.2
   score: 0
-  timeBetweenBossPhases: 20
+  timeBetweenBossPhases: 30
   pillarSpawner: {fileID: 345873362}
   bossPrefab: {fileID: 0}
   bossSpawnPoint: {fileID: 144649243}
-  timeBetweenPortalPhases: 30
+  timeBetweenPortalPhases: 60
   portalPrefab: {fileID: 1733467265317597165, guid: cca67a2c7c17d4740bdc888375bb7bcf, type: 3}
   portalSpawnPoint: {fileID: 16642538}
 --- !u!4 &1149649548
@@ -4319,7 +4319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc3f78a63160934c9a8496548a231e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
-  currentMap: {fileID: 11400000, guid: 8f05c5f0fb6772b4e93c9f21a0b96fb6, type: 2}
+  currentMap: {fileID: 11400000, guid: 8ee11373b6adf5247b761e961d119972, type: 2}
   farBackground: {fileID: 1565110106}
   midBackground: {fileID: 1632266363}
   nearBackground: {fileID: 1233286713}
