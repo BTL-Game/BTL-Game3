@@ -152,6 +152,12 @@ public class GameManager : MonoBehaviour
         {
             itemSpawner.canSpawn = canSpawn;
         }
+
+        WallController wallController = Object.FindFirstObjectByType<WallController>();
+        if (wallController != null && wallController.gameObject.activeInHierarchy)
+        {
+            wallController.enabled = canSpawn;
+        }
     }
 
     public void CompleteBossPhase()

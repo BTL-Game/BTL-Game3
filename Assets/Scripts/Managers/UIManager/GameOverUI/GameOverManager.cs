@@ -21,6 +21,11 @@ public class GameOverManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         isGameOver = false;
+        if (MusicManager.instance != null && MusicManager.instance.musicSource != null)
+        {
+            MusicManager.instance.musicSource.Stop();
+            MusicManager.instance.musicSource.Play();
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void LoadHome()

@@ -11,6 +11,7 @@ public class ItemSpawner : MonoBehaviour
     public float yOffset = 40f;
     public float distanceBetweenItems = 10f;
     public float minSpawnRate = 0.2f;
+    public float soulFlameMinSpawnRate = 0.2f;
     [Header("Spawn Chances (%)")]
     [Range(0f, 100f)] public float rareItemChance = 30f;
     [Range(0f, 100f)] public float mutantChance = 10f;

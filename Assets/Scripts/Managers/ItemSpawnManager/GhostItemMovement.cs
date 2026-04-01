@@ -11,9 +11,9 @@ public class GhostItemMovement : MonoBehaviour
     void Start()
     {
         startY = transform.position.y;
-        offsetX = Random.Range(0f, 100f); 
-        amplitude = Random.Range(1f, 4f);
-        frequency = Random.Range(1f, 3f);
+        offsetX = Random.Range(0f, 100f);
+        amplitude = Random.Range(4f, 8f);
+        frequency = Random.Range(1.5f, 3.5f);
     }
     void Update()
     {

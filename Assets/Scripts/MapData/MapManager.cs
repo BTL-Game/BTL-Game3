@@ -87,6 +87,7 @@ public class MapManager : MonoBehaviour
                 itemSpawner.snowflakePrefab = iceData.snowflakePrefab;
                 itemSpawner.mutantSnowflakePrefab = iceData.mutantSnowflakePrefab;
                 itemSpawner.flamePrefab = iceData.firePrefab;
+                itemSpawner.minSpawnRate = 0.2f;
             }
             if (wallController != null) 
             {
@@ -141,6 +142,9 @@ public class MapManager : MonoBehaviour
                 itemSpawner.currentMode = ItemSpawner.SpawnerMode.Ghost;
                 itemSpawner.ghostPrefab = ghostData.ghostPrefab;
                 itemSpawner.soulFlamePrefab = ghostData.soulflamePrefab;
+                itemSpawner.distanceBetweenItems = ghostData.ghostDistanceBetweenItems;
+                itemSpawner.minSpawnRate = 0.8f;
+                itemSpawner.soulFlameMinSpawnRate = 0.2f;
             }
             if (wallController != null) 
             {
@@ -176,6 +180,10 @@ public class MapManager : MonoBehaviour
             if (SanitySystem.Instance != null)
             {
                 SanitySystem.Instance.SetActive(false);
+            }
+            if (itemSpawner != null)
+            {
+                itemSpawner.minSpawnRate = 0.2f;
             }
             if (GameManager.Instance != null)
             {

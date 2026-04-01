@@ -2092,6 +2092,7 @@ MonoBehaviour:
   yOffset: 40
   distanceBetweenItems: 10
   minSpawnRate: 0.2
+  soulFlameMinSpawnRate: 0.2
   rareItemChance: 30
   mutantChance: 10
   canSpawn: 1
@@ -4318,7 +4319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc3f78a63160934c9a8496548a231e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
-  currentMap: {fileID: 11400000, guid: 8ee11373b6adf5247b761e961d119972, type: 2}
+  currentMap: {fileID: 11400000, guid: 8f05c5f0fb6772b4e93c9f21a0b96fb6, type: 2}
   farBackground: {fileID: 1565110106}
   midBackground: {fileID: 1632266363}
   nearBackground: {fileID: 1233286713}

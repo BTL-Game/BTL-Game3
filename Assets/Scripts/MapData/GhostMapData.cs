@@ -7,5 +7,7 @@ public class GhostMapData : BaseMapData
     public GameObject ghostWallPrefab; 
     public GameObject ghostPrefab;
     public GameObject soulflamePrefab;
+    [Header("Spawn Settings")]
+    public float ghostDistanceBetweenItems = 30f;
     public float sanityDecreaseRate = 2f;
 }

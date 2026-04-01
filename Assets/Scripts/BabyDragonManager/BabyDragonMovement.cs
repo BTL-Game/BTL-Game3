@@ -219,6 +219,13 @@ public class BabyDragonMovement : MonoBehaviour
     private System.Collections.IEnumerator CurseRoutine(float duration)
     {
         isCursed = true;
+        float originalSanityRate = 2f;
+        if (SanitySystem.Instance != null)
+        {
+            originalSanityRate = SanitySystem.Instance.sanityDecreaseRate;
+            SanitySystem.Instance.sanityDecreaseRate = 5f;
+        }
+        
         if (spriteRenderer != null)
         {
             Color c = spriteRenderer.color;
@@ -227,7 +234,13 @@ public class BabyDragonMovement : MonoBehaviour
         }
         yield return new WaitForSeconds(duration);
         isCursed = false;
-        rigidBody2D.gravityScale /= 2f; 
+        rigidBody2D.gravityScale /= 2f;
+        
+        if (SanitySystem.Instance != null && SanitySystem.Instance.sanityDecreaseRate == 5f)
+        {
+            SanitySystem.Instance.sanityDecreaseRate = originalSanityRate;
+        }
+        
         curseRoutine = null;
         if (spriteRenderer != null)
         {
@@ -248,6 +261,13 @@ public class BabyDragonMovement : MonoBehaviour
             ShieldObject.SetActive(false);
         }
         isInvincible = false;
+        if (isCursed)
+        {
+            if (SanitySystem.Instance != null && SanitySystem.Instance.sanityDecreaseRate == 5f)
+            {
+                SanitySystem.Instance.sanityDecreaseRate = 2f;
+            }
+        }
         isCursed = false;
         isGhostForm = false;
         if (spriteRenderer != null)
