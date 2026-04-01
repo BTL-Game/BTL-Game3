@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -18,19 +18,15 @@ public class TeleportPortal : MonoBehaviour
         {
             if (targetMaps == null || targetMaps.Length == 0)
             {
-                Debug.LogWarning("[TeleportPortal] Không có targetMaps nào được gán!");
                 return;
             }
-            Debug.Log("[TeleportPortal] Đi vào portal, bắt đầu chuyển map.");
             
-            // Ẩn Portal đi và ngắt va chạm để player không đụng 2 lần
             Collider2D col = GetComponent<Collider2D>();
             if (col != null) col.enabled = false;
 
             Renderer[] renderers = GetComponentsInChildren<Renderer>();
             foreach (var r in renderers) r.enabled = false;
 
-            // Tắt script di chuyển để nó không bay vào vùng Hủy (Shredder/DeadZone) ở bên trái màn hình
             MonoBehaviour movement = GetComponent("PillarMovement") as MonoBehaviour;
             if (movement != null) movement.enabled = false;
 
@@ -42,7 +38,6 @@ public class TeleportPortal : MonoBehaviour
     {
         isTeleporting = true;
         
-        // Tắt di chuyển và trọng lực của người chơi để đứng yên lơ lửng khi chuyển cảnh
         Rigidbody2D playerRb = null;
         MonoBehaviour playerMovement = null;
 
@@ -51,11 +46,10 @@ public class TeleportPortal : MonoBehaviour
             playerRb = playerObj.GetComponent<Rigidbody2D>();
             if (playerRb != null) 
             {
-                playerRb.linearVelocity = Vector2.zero; // Dừng hẳn gia tốc hiện tại
-                playerRb.gravityScale = 0f;       // Tắt trọng lực
+                playerRb.linearVelocity = Vector2.zero;
+                playerRb.gravityScale = 0f;
             }
 
-            // Tắt script điều khiển (bay nhảy) của con rồng
             playerMovement = playerObj.GetComponent("BabyDragonMovement") as MonoBehaviour;
             if (playerMovement != null) playerMovement.enabled = false;
         }
@@ -89,7 +83,6 @@ public class TeleportPortal : MonoBehaviour
         {
             BaseMapData selectedMap = targetMaps[Random.Range(0, targetMaps.Length)];
             
-            // Đảm bảo không chọn random trùng map hiện tại nếu đang có nhiều lựa chọn
             if (targetMaps.Length > 1 && MapManager.Instance.currentMap == selectedMap)
             {
                 for (int i = 0; i < targetMaps.Length; i++)
@@ -102,11 +95,9 @@ public class TeleportPortal : MonoBehaviour
                 }
             }
 
-            Debug.Log($"[TeleportPortal] Áp dụng map mới: {selectedMap.name}");
             MapManager.Instance.ApplyMap(selectedMap);
         }
 
-        // Kích hoạt lại đoạn Intro của rồng và reset tốc độ game
         if (playerObj != null)
         {
             PlayerIntro intro = playerObj.GetComponent<PlayerIntro>();
@@ -115,11 +106,6 @@ public class TeleportPortal : MonoBehaviour
                 intro.enabled = true;
                 intro.StartIntro();
             }
-        }
-        
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.ResetGameSpeed();
         }
 
         yield return new WaitForSeconds(0.1f);
@@ -133,7 +119,6 @@ public class TeleportPortal : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("[TeleportPortal] Đã hoàn thành fade, hủy Portal.");
         Destroy(canvasGo);
         Destroy(gameObject);
     }

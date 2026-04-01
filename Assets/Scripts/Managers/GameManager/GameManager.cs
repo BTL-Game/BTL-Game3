@@ -1,9 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
     public bool isGameStarted = false;
     [Header("Difficulty Settings")]
     public float gameSpeed = 5f;
@@ -29,53 +29,49 @@ public class GameManager : MonoBehaviour
     public bool IsBossPhaseActive { get; private set; }
     public bool IsPortalPhaseActive { get; private set; }
     
-    private float initialGameSpeed;
 
     void Awake()
     {
-        Instance = this;
-        initialGameSpeed = gameSpeed;
-    }
-
-    public void ResetGameSpeed()
-    {
-        gameSpeed = initialGameSpeed;
-        Debug.Log("[GameManager] Tốc độ game đã được reset về: " + gameSpeed);
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
     {
-        if (gameSpeed < maxGameSpeed)
+        if (isGameStarted)
         {
-            gameSpeed += speedMultiplier * Time.deltaTime;
-        }
-
-        if (isGameStarted && !IsBossPhaseActive && !IsPortalPhaseActive)
-        {
-            // Tăng timer nếu đang ở trạng thái bình thường
-            if (bossPrefab != null) currentBossTimer += Time.deltaTime;
-            if (portalPrefab != null) currentPortalTimer += Time.deltaTime;
-
-            // Kiểm tra Boss Phase trước
-            if (currentBossTimer >= timeBetweenBossPhases && bossPrefab != null)
+            if (gameSpeed < maxGameSpeed)
             {
-                currentBossTimer = 0f;
-                // Sang Boss Phase: Timer của Portal sẽ dừng đếm do IsBossPhaseActive = true
-                StartCoroutine(RunBossPhase());
+                gameSpeed += speedMultiplier * Time.deltaTime;
             }
-            // Nếu chưa gọi Boss thì kiểm tra Portal Phase
-            else if (currentPortalTimer >= timeBetweenPortalPhases && portalPrefab != null)
+
+            if (!IsBossPhaseActive && !IsPortalPhaseActive)
             {
-                currentPortalTimer = 0f;
-                // Sang Portal Phase: Timer của Boss sẽ dừng đếm do IsPortalPhaseActive = true
-                StartCoroutine(RunPortalPhase());
+                if (bossPrefab != null) currentBossTimer += Time.deltaTime;
+                if (portalPrefab != null) currentPortalTimer += Time.deltaTime;
+
+                if (bossPrefab != null && currentBossTimer >= timeBetweenBossPhases)
+                {
+                    currentBossTimer = 0f;
+                    StartCoroutine(RunBossPhase());
+                }
+                else if (portalPrefab != null && currentPortalTimer >= timeBetweenPortalPhases)
+                {
+                    currentPortalTimer = 0f;
+                    StartCoroutine(RunPortalPhase());
+                }
             }
         }
     }
 
     IEnumerator RunPortalPhase()
     {
-        Debug.Log("[GameManager] Bắt đầu RunPortalPhase! Ẩn các spawners.");
         IsPortalPhaseActive = true;
         SetSpawnersActive(false);
 
@@ -84,7 +80,6 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         
-        Debug.Log("[GameManager] Mọi chướng ngại vật đã qua, chuẩn bị spawn Portal.");
         Vector3 spawnPos = portalSpawnPoint != null ? portalSpawnPoint.position : new Vector3(80f, 0f, 0f);
         GameObject portalInstance = Instantiate(portalPrefab, spawnPos, Quaternion.identity);
 
@@ -98,14 +93,12 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("[GameManager] Portal đã bị hủy/đi qua, kết thúc Portal phase và bật lại spawner.");
         IsPortalPhaseActive = false;
         SetSpawnersActive(true);
     }
 
     IEnumerator RunBossPhase()
     {
-        Debug.Log("[GameManager] Bắt đầu RunBossPhase! Ẩn các spawners.");
         IsBossPhaseActive = true;
         SetSpawnersActive(false);
 
@@ -120,7 +113,6 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("[GameManager] Spawn Boss.");
         SpawnBoss();
 
         while (IsBossPhaseActive)
@@ -128,7 +120,6 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("[GameManager] Boss bị tiêu diệt, kết thúc Boss phase và bật lại spawner.");
         SetSpawnersActive(true);
     }
 
@@ -136,13 +127,12 @@ public class GameManager : MonoBehaviour
     {
         if (bossPrefab == null)
         {
-
             CompleteBossPhase();
             return;
         }
 
         Vector3 spawnPos = bossSpawnPoint != null ? bossSpawnPoint.position : new Vector3(110f, 12f, 0f);
-        GameObject bossInstance = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
+        Instantiate(bossPrefab, spawnPos, Quaternion.identity);
     }
 
     void SetSpawnersActive(bool canSpawn)
@@ -172,7 +162,6 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
-
     }
 
     public void SpeedUp(float extraSpeed, float duration)
@@ -183,10 +172,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator SpeedUpRoutine(float extraSpeed, float duration)
     {
         gameSpeed += extraSpeed;
-
         yield return new WaitForSeconds(duration);
         gameSpeed -= extraSpeed;
-
     }
 
     public void TriggerGameOver()
@@ -206,6 +193,12 @@ public class GameManager : MonoBehaviour
             pillar.canMove = false;
         }
 
+        WallMovement[] walls = Object.FindObjectsByType<WallMovement>(FindObjectsSortMode.None);
+        foreach (WallMovement wall in walls)
+        {
+            wall.canMove = false;
+        }
+
         if (pillarSpawner == null)
         {
             pillarSpawner = Object.FindFirstObjectByType<PillarSpawner>();
@@ -213,6 +206,12 @@ public class GameManager : MonoBehaviour
         if (pillarSpawner != null)
         {
             pillarSpawner.canSpawn = false;
+        }
+
+        WallController wallController = Object.FindFirstObjectByType<WallController>();
+        if (wallController != null)
+        {
+            wallController.StopSpawning();
         }
 
         BossManager boss = Object.FindFirstObjectByType<BossManager>();

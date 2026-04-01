@@ -1,5 +1,4 @@
-using UnityEngine;
-
+﻿using UnityEngine;
 [System.Serializable]
 public class CollectibleData
 {
@@ -10,36 +9,28 @@ public class CollectibleData
 }
 public class CollectiblesManager : MonoBehaviour
 {
-    public enum ItemType { Coin, Shield, Invincible, Speed, GravityShift, Flame, Snowflake, MutantSnowflake}
+    public enum ItemType { Coin, Shield, Invincible, Speed, GravityShift, Flame, Snowflake, MutantSnowflake, SoulFlame, Ghost}
     public ItemType type;
     public float value = 10f;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") || (other.transform.parent != null && other.transform.parent.CompareTag("Player")))
         {
-
             ApplyEffect(other.gameObject);
-
             Destroy(gameObject);
         }
         else 
         {
-
         }
     }
-
     void ApplyEffect(GameObject player)
     {
         BabyDragonMovement dragon = player.GetComponentInParent<BabyDragonMovement>();
         if (dragon == null) dragon = player.GetComponentInChildren<BabyDragonMovement>();
-
         if (dragon == null)
         {
-
             return;
         }
-
         switch (type)
         {
             case ItemType.Coin:
@@ -73,6 +64,18 @@ public class CollectiblesManager : MonoBehaviour
             case ItemType.MutantSnowflake:
                 if (ColdSystem.Instance != null) ColdSystem.Instance.IncreaseCold(20f);
                 dragon.FreezeDragon(5f);
+                break;
+            case ItemType.SoulFlame:
+                if (!dragon.isCursed && SanitySystem.Instance != null) 
+                {
+                    SanitySystem.Instance.IncreaseSanity(30f);
+                }
+                if (GameManager.Instance != null) {
+                    GameManager.Instance.AddScore(30);
+                }
+                break;
+            case ItemType.Ghost:
+                dragon.ActivateCurse(10f);
                 break;
         }
     }

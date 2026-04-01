@@ -1,13 +1,10 @@
-using UnityEngine;
-
+﻿using UnityEngine;
 public class BabyDragonSound : MonoBehaviour
 {
     private AudioSource audioSource;
-
     [Header("Audio Clips")]
     public AudioClip flappingSound;
     public AudioClip deathSound;
-
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -15,7 +12,6 @@ public class BabyDragonSound : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
-
     public void PlayFlappingSound()
     {
         if (flappingSound != null)
@@ -23,7 +19,6 @@ public class BabyDragonSound : MonoBehaviour
             audioSource.PlayOneShot(flappingSound);
         }
     }
-
     public void PlayDeathSound()
     {
         if (deathSound != null)

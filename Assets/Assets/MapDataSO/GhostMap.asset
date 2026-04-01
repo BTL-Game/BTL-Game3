@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78087384db6ed74b9e08c3ac69fb6f5, type: 3}
+  m_Name: GhostMap
+  m_EditorClassIdentifier: Assembly-CSharp::GhostMapData
+  mapName: GhostMap
+  backgroundMusic: {fileID: 8300000, guid: f75f742e5e815c5408f593ff62029a3e, type: 3}
+  farBG: {fileID: 2800000, guid: 5f8f3bc318b18e543adb2b48cd77c4f0, type: 3}
+  midBG: {fileID: 2800000, guid: f15df0125d0a6d344ad946087e07b009, type: 3}
+  nearBG: {fileID: 2800000, guid: a052208974cb9b84aa921f7bdbf7a0f1, type: 3}
+  pillarPrefab: {fileID: 5365660443727175284, guid: bf2705ef4dd26e4499c3fabbbbbd184c, type: 3}
+  normalWallPrefab: {fileID: 1784370615724223324, guid: 52fa6b2ea3ddc1f41bf9d45adf7d1688, type: 3}
+  ghostWallPrefab: {fileID: 6710574722312217914, guid: 08120c026e0340044a2c79832c08f6d8, type: 3}
+  ghostPrefab: {fileID: 7407291780329530991, guid: 3986a427831d0754c95c38deab4e3753, type: 3}
+  soulflamePrefab: {fileID: 8558100348797848425, guid: bc6ee2c366ae315459491fdeacefa78c, type: 3}
+  sanityDecreaseRate: 2

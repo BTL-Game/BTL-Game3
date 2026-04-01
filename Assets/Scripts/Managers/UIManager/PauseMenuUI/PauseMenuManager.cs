@@ -1,18 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
 public class PauseMenuManager : MonoBehaviour
 {
-
     public static bool isGamePaused = false;
     public GameObject PausedMenuUI;
     public AudioClip mainMenuMusic;
-
     void OnPause()
     {
         if (GameManager.Instance == null || !GameManager.Instance.isGameStarted) return;
-
         if (isGamePaused)
         {
             ResumeGame();
@@ -22,29 +18,24 @@ public class PauseMenuManager : MonoBehaviour
             PauseGame();
         }
     }
-
     public void ResumeGame()
     {
         Time.timeScale = 1f;
         isGamePaused = false;
         PausedMenuUI.SetActive(false);
     }
-
     void PauseGame()
     {
         Time.timeScale = 0f;
         isGamePaused = true;
-
         PausedMenuUI.SetActive(true);
     }
-
     public void RestartGame()
     {
         Time.timeScale = 1f;
         isGamePaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
     public void LoadHome()
     {
         Time.timeScale = 1f;

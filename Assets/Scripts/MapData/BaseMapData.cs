@@ -1,16 +1,13 @@
-using UnityEngine;
-
+﻿using UnityEngine;
 public class BaseMapData : ScriptableObject 
 {
-    [Header("--- DỮ LIỆU CHUNG (AI CŨNG CÓ) ---")]
+    [Header("--- COMMON SHARED DATA ---")]
     public string mapName;
     public AudioClip backgroundMusic;
-
     [Header("Parallax Textures")]
     public Texture2D farBG;
     public Texture2D midBG;
     public Texture2D nearBG;
-
-    [Header("Vật cản cơ bản")]
+    [Header("Basic Obstacles")]
     public GameObject pillarPrefab; 
 }

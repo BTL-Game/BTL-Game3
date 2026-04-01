@@ -1,10 +1,8 @@
-using UnityEngine;
-
+﻿using UnityEngine;
 public class BossDragonSound : MonoBehaviour
 {
     private AudioSource audioSource;
     public AudioClip dragonFireSound;
-
     void Start()
     {
         audioSource = GetComponent<AudioSource>();

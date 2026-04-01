@@ -1,12 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
-
 public class UIButtonController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject glowObject;
     public AudioClip hoverSound;
     private AudioSource audioSource;
-
     void Start()
     {
         if (glowObject != null) glowObject.SetActive(false);
@@ -17,18 +15,15 @@ public class UIButtonController : MonoBehaviour, IPointerEnterHandler, IPointerE
         }
                 audioSource.playOnAwake = false;
     }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (glowObject != null) glowObject.SetActive(true);
         transform.localScale = Vector3.one * 1.05f;
-
         if (hoverSound != null && audioSource != null)
         {
             audioSource.PlayOneShot(hoverSound);
         }
     }
-
     public void OnPointerExit(PointerEventData eventData)
     {
         if (glowObject != null) glowObject.SetActive(false);

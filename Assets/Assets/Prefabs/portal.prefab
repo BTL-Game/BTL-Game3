@@ -144,4 +144,5 @@ MonoBehaviour:
   targetMaps:
   - {fileID: 11400000, guid: 8ee11373b6adf5247b761e961d119972, type: 2}
   - {fileID: 11400000, guid: d50a6b69276688e4888ea22cac60b447, type: 2}
+  - {fileID: 11400000, guid: 8f05c5f0fb6772b4e93c9f21a0b96fb6, type: 2}
   fadeDuration: 3
