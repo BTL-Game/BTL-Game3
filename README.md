@@ -83,7 +83,7 @@ License note: verify and keep all final credit lines based on the original licen
 - Team name: `Group 7`
 - Members:
   - `Nguyen Hoai Nam` - `2352776`
-  - `mem` - `mssv`
+  - `Tran Dang Khoa` - `2352590`
 
 ## Acknowledgment
 Inspired by the infinite-flyer gameplay style popularized by games such as Flappy Bird and Jetpack Joyride.
