@@ -84,6 +84,7 @@ License note: verify and keep all final credit lines based on the original licen
 - Members:
   - `Nguyen Hoai Nam` - `2352776`
   - `Tran Dang Khoa` - `2352590`
-
+  - `Tran Lam Bieu` - `2352116`
+  - `Nguyễn Duy Khang` - `2352475`
 ## Acknowledgment
 Inspired by the infinite-flyer gameplay style popularized by games such as Flappy Bird and Jetpack Joyride.
