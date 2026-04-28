@@ -4,7 +4,7 @@ A 2D endless side-scroller built for **Assignment 3 (Game Programming - SEM252)*
 The player controls a baby dragon, avoids obstacles, collects items, and survives as long as possible while the world scrolls infinitely.
 
 ## Project Info
-This project was developed for `Game Programming - SEM252` as `Assignment 3 - INFINITE FLYER`, using `Unity 6 (6000.3.8f1)`. It is a Flappy Bird-style endless flyer where players progress through three rotating maps, each featuring its own boss encounter, along with collectible-based buff and debuff mechanics that affect gameplay. Source code is available at `https://github.com/BTL-Game/BTL-Game3`, and the executable build will be provided at `<EXE_DOWNLOAD_LINK_PLACEHOLDER>`.
+This project was developed for `Game Programming - SEM252` as `Assignment 3 - INFINITE FLYER`, using `Unity 6 (6000.3.8f1)`. It is a Flappy Bird-style endless flyer where players progress through three rotating maps, each featuring its own boss encounter, along with collectible-based buff and debuff mechanics that affect gameplay. Source code is available at `https://github.com/BTL-Game/BTL-Game3`, and the executable build will be provided in `InfiniteFlyer_Build.7z`. Extract the `InfiniteFlyer_Build.7z` using 7z and run `Dragonway - Infinite Flyer.exe` to play game.
 
 ## Controls
 - `Space` or `Left Mouse`: flap / jump
