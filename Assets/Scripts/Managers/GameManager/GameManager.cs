@@ -14,13 +14,13 @@ public class GameManager : MonoBehaviour
     public int score = 0;
 
     [Header("Boss Phase Settings")]
-    public float timeBetweenBossPhases = 30f;
+    public float timeBetweenBossPhases = 20f;
     public PillarSpawner pillarSpawner;
     public GameObject bossPrefab;
     public Transform bossSpawnPoint;
 
     [Header("Portal Phase Settings")]
-    public float timeBetweenPortalPhases = 60f;
+    public float timeBetweenPortalPhases = 30f;
     public GameObject portalPrefab;
     public Transform portalSpawnPoint;
 

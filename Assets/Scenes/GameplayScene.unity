@@ -2709,11 +2709,11 @@ MonoBehaviour:
   maxGameSpeed: 20
   speedMultiplier: 0.2
   score: 0
-  timeBetweenBossPhases: 30
+  timeBetweenBossPhases: 20
   pillarSpawner: {fileID: 345873362}
   bossPrefab: {fileID: 0}
   bossSpawnPoint: {fileID: 144649243}
-  timeBetweenPortalPhases: 60
+  timeBetweenPortalPhases: 30
   portalPrefab: {fileID: 1733467265317597165, guid: cca67a2c7c17d4740bdc888375bb7bcf, type: 3}
   portalSpawnPoint: {fileID: 16642538}
 --- !u!4 &1149649548
