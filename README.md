@@ -40,7 +40,7 @@ This means:
 
 ## How To Run
 ### Option 1: Run executable (recommended)
-1. Extract and run: `<GAME_EXE_NAME_PLACEHOLDER>.exe`
+1. Extract and run: `Dragonway - Infinite Flyer.exe`
 
 ### Option 2: Run from source in Unity
 1. Open project in Unity `6000.3.8f1` (or compatible)
